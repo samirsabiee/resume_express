@@ -75,6 +75,14 @@
 
     <!--Hero Area Start-->
     <section class="home section-bg active" id="home">
+        <% if(data !== undefined && data !== '') { %>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <%= data.message %>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <% } %>
         <div class="h-100vh d-flex align-items-center">
             <div class="container">
                 <div class="row">
@@ -275,7 +283,8 @@
                         <div class="row">
                             <div class="col-lg-6 d-flex align-self-center">
                                 <div class="about-content">
-                                    <a href="#" class="mybtn mybtn-bg"> <span><i class="fas fa-download"></i>دانلود رزومه من</span>
+                                    <a href="/download/resume" class="mybtn mybtn-bg"> <span><i
+                                                    class="fas fa-download"></i>دانلود رزومه من</span>
                                     </a>
                                 </div>
                             </div>
@@ -725,13 +734,13 @@
                     <div class="project-gallery-filter d-flex justify-content-center">
                         <ul class="project-gallery-menu d-inline-block">
                             <li class="filter active" data-filter="all">همه</li>
-                            <li class="filter" data-filter=".cat-1">مارکتینگ</li>
-                            <li class="filter" data-filter=".cat-2">مدیریت</li>
-                            <li class="filter" data-filter=".cat-3">مشاوره</li>
+                            <li class="filter" data-filter=".cat-1">وبسایت</li>
+                            <li class="filter" data-filter=".cat-2">اندروید</li>
+                            <li class="filter" data-filter=".cat-3">دسکتاپ</li>
                         </ul>
                     </div>
                     <div class="row project-gallery-item">
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-1 cat-3">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-1">
                             <a href="ajax/portfolio-ajax-project-1.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/1.jpg" alt="">
@@ -746,7 +755,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item  cat-3 cat-4">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-1">
                             <a href="ajax/portfolio-ajax-project-2.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/2.jpg" alt="">
@@ -762,7 +771,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2 cat-1">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-3.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/3.jpg" alt="">
@@ -778,7 +787,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-1 cat-3">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-1.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/4.jpg" alt="">
@@ -794,7 +803,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-3 cat-4">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-2.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/5.jpg" alt="">
@@ -810,7 +819,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-1 cat-2">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-3.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/6.jpg" alt="">
@@ -826,7 +835,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-4 cat-2">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-1.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/7.jpg" alt="">
@@ -842,7 +851,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-3 cat-2">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-2">
                             <a href="ajax/portfolio-ajax-project-2.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/8.jpg" alt="">
@@ -858,7 +867,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="mix col-md-6 col-lg-4 gallery-item cat-3 cat-1">
+                        <div class="mix col-md-6 col-lg-4 gallery-item cat-3">
                             <a href="ajax/portfolio-ajax-project-3.html" class="gallery-item-content pp">
                                 <div class="item-thumbnail">
                                     <img src="assets/images/9.jpg" alt="">
@@ -1092,9 +1101,8 @@
                         </div>
                         <div class="info-content">
                             <h5>آدرس من:</h5>
-                            <p>ایران، تهران</p>
+                            <p>ایران، بوشهر</p>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -1105,7 +1113,7 @@
                         </div>
                         <div class="info-content">
                             <h5>تلفن همراه:</h5>
-                            <p>09121234567</p>
+                            <p>09362633788</p>
                         </div>
 
                     </div>
@@ -1119,7 +1127,7 @@
                         </div>
                         <div class="info-contentr">
                             <h5>آدرس ایمیل:</h5>
-                            <p>demomail@gmail.com</p>
+                            <p>samirsabiee@gmail.com</p>
                         </div>
                     </div>
                 </div>
@@ -1128,8 +1136,8 @@
                 <div class="col-lg-6">
                     <div class="home-page-form">
                         <div class="contact-form">
-                            <form id="contact-form" method="post" action="https://idealdevs.net/porichoy/sendmail">
-                                <input type="hidden" name="_token" value="U58FZo5N9knWeZ9Bp0aIjs2rZ5NOuJ4ej3SCbpB4">
+                            <form id="contact-form" method="post" action="/sendMail"
+                                  enctype="application/x-www-form-urlencoded">
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
