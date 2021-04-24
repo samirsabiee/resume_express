@@ -1,4 +1,6 @@
 const transporter = require('../config/nodemailer')
+const ejs = require('ejs')
+const path = require('path')
 
 class MailServices {
     async sendMailToMe(name, subject, senderMail, message) {
@@ -11,15 +13,13 @@ class MailServices {
         })
     }
 
-    makeHtml(name, subject, senderMail, message) {
-        return `
-                <div class="jumbotron">
-                <h1>${subject}</h1>
-                <h3>${name}</h3>
-                <h4>${senderMail}</h4>
-                <p>${message}</p>
-                </div>
-            `
+    async makeHtml(name, subject, senderMail, message) {
+        return await ejs.renderFile(path.join(__dirname, '../views/contact_email.ejs'), {
+            name,
+            subject,
+            senderMail,
+            message
+        });
     }
 }
 

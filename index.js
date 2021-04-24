@@ -2,7 +2,12 @@
 require('dotenv').config()
 // import express
 const express = require('express')
+//import cors
+const cors = require('cors')
+//make express app
 const app = express()
+//CORS policy
+app.use(cors())
 //using native body-parser for get form data
 app.use(express.urlencoded({extended: true}))
 //require app config

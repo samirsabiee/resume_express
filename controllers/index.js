@@ -3,8 +3,7 @@ const fileSystemService = require('../services/filesystem')
 const mailServices = require('../services/mailServices')
 const emailvalidation = require('../validation/email')
 module.exports.index = (req, res) => {
-    console.log('------------------> ', req.session.action)
-    res.render('index', {data: req.session.action})
+    res.render('index')
 }
 module.exports.download_resume = (req, res) => {
     const resumeFile = path.join(__dirname, '../public/assets/resume_file/samir_sabiee.pdf')
@@ -17,11 +16,6 @@ module.exports.download_resume = (req, res) => {
 module.exports.sendMail = async (req, res) => {
     const body = req.body
     await emailvalidation.validateAsync(body)
-    const info = await mailServices.sendMailToMe(body.name, body.subject, body.email, body.message)
-    console.log(info)
-    req.session.action = {
-        message: 'email successfully sent',
-        list: []
-    }
-    res.render('index', {data: req.session.action})
+    await mailServices.sendMailToMe(body.name, body.subject, body.email, body.message)
+    res.status(200).send({message: 'email sent'})
 }

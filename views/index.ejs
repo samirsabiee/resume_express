@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- responsive css -->
     <link rel="stylesheet" href="assets/css/responsive.css">
-<!--    &lt;!&ndash; Tight Theme &ndash;&gt;-->
-<!--    <link rel="stylesheet" href="assets/css/lite.css">-->
+    <!--    &lt;!&ndash; Tight Theme &ndash;&gt;-->
+    <!--    <link rel="stylesheet" href="assets/css/lite.css">-->
 </head>
 
 <body>
@@ -75,14 +75,6 @@
 
     <!--Hero Area Start-->
     <section class="home section-bg active" id="home">
-        <% if(data !== undefined && data !== '') { %>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <%= data.message %>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <% } %>
         <div class="h-100vh d-flex align-items-center">
             <div class="container">
                 <div class="row">
@@ -1136,7 +1128,7 @@
                 <div class="col-lg-6">
                     <div class="home-page-form">
                         <div class="contact-form">
-                            <form id="contact-form" method="post" action="/sendMail"
+                            <form id="contact-form"
                                   enctype="application/x-www-form-urlencoded">
                                 <div class="controls">
                                     <div class="row">
@@ -1182,7 +1174,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" class="mybtn mybtn-bg"><span>ارسال پیام</span>
+                                            <button type="submit" id="sendMailBtn" class="mybtn mybtn-bg">
+                                                <span>ارسال پیام</span>
                                             </button>
                                         </div>
                                     </div>
@@ -1295,6 +1288,7 @@
 <script src="assets/js/mixitup.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="ajax/main.js"></script>
 
 </body>
 
