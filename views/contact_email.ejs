@@ -5,9 +5,65 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Contact Email</title>
+    <style>
+        .header {
+            background-color: #1452bc;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .message {
+            font-weight: bold;
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
+<div class="header">
+    <h3><%= subject %></h3>
+</div>
+<div class="content">
+    <table>
+        <thead>
+        <tr>
+            <th>نام</th>
+            <th>ایمیل</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><%= name %></td>
+            <td><%= senderMail %></td>
+        </tr>
+        <tr>
+            <td class="message" colspan="2"><%= message %></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="footer">
 
+</div>
 </body>
 </html>

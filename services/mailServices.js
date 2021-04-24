@@ -9,7 +9,7 @@ class MailServices {
             to: process.env.MY_MAIL,
             subject: subject,
             text: message,
-            html: this.makeHtml(name, subject, senderMail, message)
+            html: await this.makeHtml(name, subject, senderMail, message)
         })
     }
 
