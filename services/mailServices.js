@@ -3,7 +3,7 @@ const transporter = require('../config/nodemailer')
 class MailServices {
     async sendMailToMe(name, subject, senderMail, message) {
         return await transporter.sendMail({
-            from: process.env.MAIL_FROM,
+            from: senderMail,
             to: process.env.MY_MAIL,
             subject: subject,
             text: message,

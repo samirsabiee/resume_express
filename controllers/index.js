@@ -17,15 +17,11 @@ module.exports.download_resume = (req, res) => {
 module.exports.sendMail = async (req, res) => {
     const body = req.body
     await emailvalidation.validateAsync(body)
-    mailServices.sendMailToMe(body.name, body.subject, body.email, body.message)
+    const info = await mailServices.sendMailToMe(body.name, body.subject, body.email, body.message)
+    console.log(info)
     req.session.action = {
         message: 'email successfully sent',
         list: []
     }
-    req.session.save(err => {
-        if(!err){
-            res.redirect('/')
-        }
-    })
-    //res.render('index', {data: req.session.action})
+    res.render('index', {data: req.session.action})
 }
