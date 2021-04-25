@@ -7,3 +7,6 @@ module.exports.blog = (req, res) => {
 module.exports.comments = (req, res) => {
     res.render('admin/dashboard', {layout: 'comments'})
 }
+module.exports.addArticle = (req, res) => {
+    res.render('admin/dashboard', {layout: 'addArticle'})
+}
