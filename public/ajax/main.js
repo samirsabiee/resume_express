@@ -12,10 +12,20 @@ $(function ($) {
                 data: dataObject,
                 async: false, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
                 success: function (response, textStatus, jqXHR) {
-                    alert('Success ' + response.message)
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-success')
+                    title[0].textContent = 'موفق'
+                    $("#modalIcon").addClass('fas fa-thumbs-up text-success')
+                    $("#messageModalContent")[0].innerText = response.message
+                    $("#ajaxModal").modal("show")
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert('ERR ' + errorThrown)
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-danger')
+                    title[0].textContent = 'ناموفق'
+                    $("#modalIcon").addClass('fas fa-thumbs-down text-danger')
+                    $("#messageModalContent")[0].innerText = 'ارسال ایمیل با شکست مواجه شد لطفا بعدا تلاش نمایید'
+                    $("#ajaxModal").modal("show")
                 }
             })
         })

@@ -13,8 +13,8 @@ class MailServices {
         })
     }
 
-    async makeHtml(name, subject, senderMail, message) {
-        return await ejs.renderFile(path.join(__dirname, '../views/contact_email.ejs'), {
+    makeHtml(name, subject, senderMail, message) {
+        return ejs.renderFile(path.join(__dirname, '../views/contact_email.ejs'), {
             name,
             subject,
             senderMail,

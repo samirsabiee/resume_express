@@ -1279,6 +1279,31 @@
 </div>
 <!-- Blog Modal End-->
 
+<!-- ajax result modal -->
+<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="ajaxModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100" id="ajaxModalLabel">Modal title</h5>
+            </div>
+            <div class="modal-body">
+                <div class="single-info d-flex flex-column justify-content-center align-items-center">
+                    <div class="info-icon">
+                        <i id="modalIcon"></i>
+                    </div>
+                    <div id="messageModalContent" class="info-content text-white">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$('#ajaxModal').modal('hide')" type="button" class="btn btn-primary">تایید</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end ajax result modal -->
+
 <!-- Main jquery and all jquery plugin hear -->
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
