@@ -2,10 +2,10 @@
 <main class="ttr-wrapper">
     <div class="container-fluid">
         <div class="db-breadcrumb">
-            <h4 class="breadcrumb-title">مقالات</h4>
+            <h4 class="breadcrumb-title">نظرات</h4>
             <ul class="db-breadcrumb-list">
                 <li><a href="#"><i class="fa fa-home"></i>خانه</a></li>
-                <li>مقالات</li>
+                <li>نظرات</li>
             </ul>
         </div>
         <div class="row">
@@ -13,14 +13,11 @@
             <div class="col-lg-12 m-b30">
                 <div class="widget-box">
                     <div class="wc-title">
-                        <h4>مقالات ما</h4>
+                        <h4>نظرات</h4>
                     </div>
                     <div class="widget-inner">
-                        <div class="card-courses-list admin-courses">
-                            <div class="card-courses-media">
-                                <img src="assets/images/courses/pic1.jpg" alt=""/>
-                            </div>
-                            <div class="card-courses-full-dec">
+                        <div class="card-courses-list admin-review">
+                            <div class="card-courses-full-dec w-100">
                                 <div class="card-courses-title">
                                     <h4>یادگیری پی‌اچ‌پی از پایه تا پیشرفته</h4>
                                 </div>
@@ -28,16 +25,12 @@
                                     <ul class="card-courses-view">
                                         <li class="card-courses-user">
                                             <div class="card-courses-user-pic">
-                                                <img src="assets/images/testimonials/pic3.jpg" alt=""/>
+                                                <img src="assets/images/testimonials/pic1.jpg" alt=""/>
                                             </div>
                                             <div class="card-courses-user-info">
                                                 <h5>نویسنده</h5>
-                                                <h4>سمیر سبیعی</h4>
+                                                <h4>علی احمدی</h4>
                                             </div>
-                                        </li>
-                                        <li class="card-courses-categories">
-                                            <h5>3 دسته‌بندی</h5>
-                                            <h4>بک‌اند</h4>
                                         </li>
                                         <li class="card-courses-review">
                                             <h5>3 نظرات</h5>
@@ -49,24 +42,46 @@
                                                 <li><i class="fa fa-star"></i></li>
                                             </ul>
                                         </li>
-                                        <li class="card-courses-stats">
-                                            <a href="#" class="btn button-sm green radius-xl">تکمیل شده</a>
+                                        <li class="card-courses-categories">
+                                            <h5>تاریخ</h5>
+                                            <h4>10/12/1398</h4>
+                                        </li>
+                                        <li class="card-courses-price">
+                                            <button class="btn btn-success"> تایید شده</button>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="row card-courses-dec">
                                     <div class="col-md-12">
-                                        <h6 class="m-b10">چکیده مقاله</h6>
+                                        <h6 class="m-b10">باکیفیت‌ترین دوره موجود</h6>
                                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
                                             طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
                                             لازم است</p>
                                     </div>
                                     <div class="col-md-12">
-                                        <a href="#" class="btn green radius-xl outline">انتشار</a>
-                                        <a href="#" class="btn red outline radius-xl ">ویرایش</a>
+                                        <a href="#" class="btn" data-toggle="modal"
+                                           data-target="#exampleModal">پاسخ </a>
                                     </div>
                                 </div>
-
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">پاسخ</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea class="form-control" placeholder="تایپ کنید"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn mr-auto">پاسخ</button>
+                                </div>
                             </div>
                         </div>
                     </div>
