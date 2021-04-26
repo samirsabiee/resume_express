@@ -1,3 +1,4 @@
 module.exports = {
-    successSendEmail: 'ایمیل با موفقیت ارسال شد'
+    successSendEmail: 'ایمیل با موفقیت ارسال شد',
+    successSaveArticle: 'مقاله با موفقیت ذخیره شد'
 }

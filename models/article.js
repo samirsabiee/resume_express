@@ -1,4 +1,4 @@
-const articleModel = require('../databases/models/article')
+const articleModel = require('../databases/schema/article')
 const articleValidator = require('../validation/article')
 
 class Article {
@@ -22,6 +22,14 @@ class Article {
 
     async deleteById(id) {
         return await articleModel.deleteOne(id)
+    }
+
+    async all() {
+        return await articleModel.find()
+    }
+
+    async paginateArticle(page, limit) {
+        return await articleModel.paginate({}, {page, limit})
     }
 }
 

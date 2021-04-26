@@ -20,6 +20,8 @@
     <meta property="og:image" content=""/>
     <meta name="format-detection" content="telephone=no">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
     <!-- FAVICONS ICON ============================================= -->
     <link rel="shortcut icon" type="image/x-icon" href="/admin/assets/images/favicon.png"/>
 
@@ -307,6 +309,31 @@
 <%- include(layout); %>
 <div class="ttr-overlay"></div>
 
+<!-- ajax result modal -->
+<div class="modal fade" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="ajaxModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100" id="ajaxModalLabel">Modal title</h5>
+            </div>
+            <div class="modal-body">
+                <div class="single-info d-flex flex-column justify-content-center align-items-center">
+                    <div class="info-icon">
+                        <i id="modalIcon"></i>
+                    </div>
+                    <div id="messageModalContent" class="info-content text-black">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="$('#ajaxModal').modal('hide')" type="button" class="btn btn-primary">تایید</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end ajax result modal -->
+
 <!-- External JavaScripts -->
 <script src="/admin/assets/js/jquery.min.js"></script>
 <script src="/admin/assets/vendors/bootstrap/js/popper.min.js"></script>
@@ -322,85 +349,7 @@
 <script src='/admin/assets/cal-per/moment-jalaali.js'></script>
 <script src='/admin/assets/vendors/calendar/fullcalendar.js'></script>
 <script src='/admin/assets/cal-per/locale-all.js'></script>
-<!-- <script>
-    $(document).ready(function () {
-
-        $('#calendar').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay,listWeek'
-            },
-            defaultDate: '2019-03-12',
-            navLinks: true, // can click day/week names to navigate views
-
-            weekNumbers: false,
-            weekNumbersWithinDays: true,
-            weekNumberCalculation: 'ISO',
-
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-            events: [
-                {
-                    title: 'برنامه اول',
-                    start: '2019-03-01'
-                },
-                {
-                    title: 'رویداد',
-                    start: '2019-03-07',
-                    end: '2019-03-10'
-                },
-                {
-                    id: 999,
-                    title: 'رویداد تکراری',
-                    start: '2019-03-09T16:00:00'
-                },
-                {
-                    id: 999,
-                    title: 'رویداد تکراری',
-                    start: '2019-03-16T16:00:00'
-                },
-                {
-                    title: 'کنفرانس',
-                    start: '2019-03-11',
-                    end: '2019-03-13'
-                },
-                {
-                    title: 'ملاقات کاری',
-                    start: '2019-03-12T10:30:00',
-                    end: '2019-03-12T12:30:00'
-                },
-                {
-                    title: 'ناهار',
-                    start: '2019-03-12T12:00:00'
-                },
-                {
-                    title: 'ملاقات کاری',
-                    start: '2019-03-12T14:30:00'
-                },
-                {
-                    title: 'استراحت',
-                    start: '2019-03-12T17:30:00'
-                },
-                {
-                    title: 'شام',
-                    start: '2019-03-12T20:00:00'
-                },
-                {
-                    title: 'جشن تولد',
-                    start: '2019-03-13T07:00:00'
-                },
-                {
-                    title: 'کلیک کنید',
-                    url: 'http://google.com/',
-                    start: '2019-03-28'
-                }
-            ]
-        });
-
-    });
-
-</script> -->
+<script src='/admin/assets/ajax/index.js'></script>
 
 
 <script>

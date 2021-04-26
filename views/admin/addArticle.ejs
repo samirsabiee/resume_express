@@ -16,29 +16,41 @@
                         <h4>افزودن مقاله</h4>
                     </div>
                     <div class="widget-inner">
-                        <form class="edit-profile m-b30">
+                        <form action="/admin/saveArticle" method="POST" id="addArticleForm"
+                              class="edit-profile m-b30"
+                              enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-12">
-                                    <label class="col-form-label">نام مقاله</label>
+                                    <label for="articleName" class="col-form-label">نام مقاله</label>
                                     <div>
-                                        <input class="form-control" type="text" value="">
+                                        <input id="articleName" name="articleName" class="form-control" type="text"
+                                               value="">
                                     </div>
                                 </div>
                                 <div class="form-group col-12">
-                                    <label class="col-form-label">نام نویسنده</label>
+                                    <label for="authorName" class="col-form-label">نام نویسنده</label>
                                     <div>
-                                        <input class="form-control" type="text" value="">
+                                        <input id="authorName" name="authorName" class="form-control" type="text"
+                                               value="">
                                     </div>
                                 </div>
                                 <div class="seperator"></div>
                                 <div class="form-group col-12">
-                                    <label class="col-form-label"> چکیده مقاله</label>
+                                    <label for="summary" class="col-form-label">چکیده مقاله</label>
                                     <div>
-                                        <textarea class="form-control"> </textarea>
+                                        <textarea id="summary" name="summary" class="form-control"> </textarea>
                                     </div>
                                 </div>
                                 <div class="form-group col-12">
-                                    <div class="summernote"></div>
+                                    <input name="content" type="text" class="summernote"/>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input id="files" name="files" type="file"
+                                           accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+                                           multiple>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input id="saveArticle" type="submit" class="btn btn-lg" value="ذخیره"/>
                                 </div>
                             </div>
                         </form>
