@@ -8,6 +8,8 @@ const cors = require('cors')
 const app = express()
 //CORS policy
 app.use(cors())
+//connect to database
+require('./databases')
 //using native body-parser for get form data
 app.use(express.urlencoded({extended: true}))
 //require app config
