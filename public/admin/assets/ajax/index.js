@@ -4,7 +4,6 @@
             e.preventDefault()
             let fd = new FormData(this)
             fd.append('content', $('.summernote').summernote('code'))
-            fd.append('files', $('#files')[0].files)
             $.ajax({
                 type: "POST",
                 url: "http://localhost:3000/admin/saveArticle",
@@ -25,7 +24,8 @@
                     title.addClass('text-danger')
                     title[0].textContent = 'ناموفق'
                     $("#modalIcon").addClass('fas fa-thumbs-down text-danger')
-                    $("#messageModalContent")[0].innerText = 'ارسال ایمیل با شکست مواجه شد لطفا بعدا تلاش نمایید'
+                    $("#messageModalContent")[0].innerText = 'ذخیره مقاله با شکست مواجه شد لطفا بعدا تلاش نمایید'
+                    //$("#messageModalContent")[0].innerText = jqXHR.responseText
                     $("#ajaxModal").modal("show")
                 }
             })

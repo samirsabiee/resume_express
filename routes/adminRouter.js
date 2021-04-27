@@ -8,5 +8,5 @@ router.get('/dashboard', adminController.dashboard)
 router.get('/blog', adminController.blog)
 router.get('/comments', adminController.comments)
 router.get('/addArticle', adminController.addArticle)
-router.post('/saveArticle', upload.array('files', process.env.MAX_COUNT_FILES_UPLOAD), adminController.saveArticle)
+router.post('/saveArticle', adminController.saveArticle)
 module.exports = router
