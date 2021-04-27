@@ -1,7 +1,4 @@
 const express = require('express')
-//import multer for upload multipart form files
-const multer = require('multer')
-const upload = multer({dest: '../uploads/'})
 const router = express.Router()
 const adminController = require('../controllers/admin')
 router.get('/dashboard', adminController.dashboard)

@@ -1,4 +1,5 @@
-const upload = require('../services/upload')
+const Upload = require('../services/upload')
+const messages = require('../services/messages')
 module.exports.dashboard = (req, res) => {
     res.render('admin/dashboard', {layout: 'index'})
 }
@@ -13,7 +14,14 @@ module.exports.addArticle = (req, res) => {
 }
 module.exports.saveArticle = async (req, res) => {
     try {
-        upload.uploadImages(req, res, 'articles', 'files')
+        new Upload('articles', 'files').uploadImages()(req, res, (err) => {
+            if (err) {
+                res.status(400).send(err)
+            } else {
+                console.log(req.files)
+                res.status(200).send({message: messages.successSaveArticle})
+            }
+        })
     } catch (e) {
         console.log(e)
         res.status(400).send({message: e.message})

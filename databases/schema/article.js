@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const articleSchema = new Schema({
     title: {type: String, required: true},
     author: {type: String, required: true},
-    image: String,
+    images: {type: [{id: Schema.ObjectId, url: String}], required: true},
     summary: {type: String, required: true},
     content: {type: String, required: true}
 }, {timestamps: true})
