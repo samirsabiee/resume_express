@@ -1,4 +1,4 @@
-const { validations, attributes } = require("./errors.json");
+const {validations, attributes} = require("./errors.json");
 
 exports.__ = (validation, field = null, params = {}) => {
     validation = validation.split(".");

@@ -7,7 +7,7 @@ class Media {
             await mediaValidation.validateAsync(media)
             return await mediaSchema.create(media)
         } catch (e) {
-            console.log(e)
+            throw e
         }
     }
 

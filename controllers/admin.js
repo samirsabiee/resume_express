@@ -15,11 +15,16 @@ module.exports.addArticle = (req, res) => {
     res.render('admin/dashboard', {layout: 'addArticle'})
 }
 module.exports.saveArticle = async (req, res) => {
-    new Upload('articles', 'files').uploadImages()(req, res, (err) => {
+    new Upload('articles', 'files').uploadImages()(req, res, async (err) => {
         if (err) {
-            res.status(400).send(err)
+            res.status(400).send({message: err.message})
         } else {
-            storingFilesAndArticle(req.files, req.body, res)
+            try {
+                await isImagesSent(req.files)
+                await storingFilesAndArticle(req.files, req.body, res)
+            } catch (e) {
+                res.status(400).send({message: messages.unselectedImage})
+            }
         }
     })
 }
@@ -44,6 +49,14 @@ async function saveImagesInfo(imagesInfo) {
 
 async function saveArticle(imagesIdAndUrl, article) {
     article.images = await imagesIdAndUrl
-    article.content = article.content[1]
     return await articleModel.create(article)
+}
+
+function isImagesSent(files) {
+    return new Promise((resolve, reject) => {
+        if (files.length === 0) {
+            reject(messages.unselectedImage)
+        }
+        resolve()
+    })
 }

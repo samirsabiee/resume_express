@@ -1,5 +1,6 @@
 const multer = require('multer')
 const path = require('path')
+const articleWithoutImagesValidation = require('../validation/articleWithoutImages')
 const imageValidation = require('../validation/image')
 
 class Upload {
@@ -27,10 +28,11 @@ class Upload {
             limits: {fileSize: process.env.MAX_IMAGE_FILE_SIZE},
             fileFilter: async function (req, file, cb) {
                 try {
+                    await articleWithoutImagesValidation.validateAsync(req.body)
                     await imageValidation.validateAsync(file)
                     cb(null, true)
                 } catch (e) {
-                    cb(e.details[0].message)
+                    cb(e)
                 }
             }
         }
