@@ -7,7 +7,7 @@ const media = Joi.object().keys({
     destination: Joi.string().required().label('Destination'),
     filename: Joi.string().required().label('FileName'),
     path: Joi.string().required().label('Path'),
-    size: Joi.string().required().label('Size')
+    size: Joi.number().required().label('Size')
 })
 
 module.exports = media

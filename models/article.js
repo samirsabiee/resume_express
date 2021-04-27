@@ -7,7 +7,7 @@ class Article {
             await articleValidator.validateAsync(article)
             return await articleSchema.create(article)
         } catch (e) {
-            console.log(e)
+            throw e
         }
     }
 
@@ -16,7 +16,7 @@ class Article {
             await articleValidator.validateAsync(article)
             return await articleSchema.findByIdAndUpdate(id, article)
         } catch (e) {
-            console.log(e)
+            throw e
         }
     }
 

@@ -1,10 +1,10 @@
-const mongoose = require('databases/index')
+const mongoose = require('mongoose')
 const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema
 const articleSchema = new Schema({
-    title: {type: String, required: true},
+    title: {type: String, required: true, unique: true},
     author: {type: String, required: true},
-    images: {type: [{id: Schema.ObjectId, url: String}], required: true},
+    images: {type: [{id: Schema.ObjectId, path: String}], required: true},
     summary: {type: String, required: true},
     content: {type: String, required: true}
 }, {timestamps: true})
