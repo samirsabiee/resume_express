@@ -21,6 +21,9 @@
                     e.target.reset()
                     $('#summernote').summernote('code', '');
                     $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        window.location.reload();
+                    })
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     let title = $("#ajaxModalLabel")
@@ -31,6 +34,9 @@
                     icon.addClass('fas fa-2x fa-thumbs-down text-danger')
                     $("#messageModalContent")[0].innerText = jqXHR.responseJSON.message
                     $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        $('#ajaxModal').modal('hide')
+                    })
                 }
             })
         })
