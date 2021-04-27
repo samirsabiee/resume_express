@@ -14,7 +14,9 @@
                     let title = $("#ajaxModalLabel")
                     title.addClass('text-success')
                     title[0].textContent = 'موفق'
-                    $("#modalIcon").addClass('fas fa-2x fa-thumbs-up text-success')
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-up text-success')
                     $("#messageModalContent")[0].innerText = response.message
                     e.target.reset()
                     $('#summernote').summernote('code', '');
@@ -24,7 +26,9 @@
                     let title = $("#ajaxModalLabel")
                     title.addClass('text-danger')
                     title[0].textContent = 'ناموفق'
-                    $("#modalIcon").addClass('fas fa-2x fa-thumbs-down text-danger')
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-down text-danger')
                     $("#messageModalContent")[0].innerText = jqXHR.responseJSON.message
                     $("#ajaxModal").modal("show")
                 }
