@@ -11,4 +11,9 @@ const mediaSchema = new Schema({
     size: {type: Number, required: true}
 }, {timestamps: true})
 
+mediaSchema.pre('save', function (next) {
+    this.path = this.path.replace('uploads\\', '')
+    next();
+});
+
 module.exports = mongoose.model('Media', mediaSchema, 'media')

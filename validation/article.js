@@ -15,19 +15,11 @@ const article = Joi.object().keys({
         .required()
         .error(errors => exception(errors, "author", {max: 30, min: 3}))
         .label('author'),
-    images: Joi
-        .array().items(Joi.object({
-            id: Joi
-                .string()
-                .required()
-                .error(errors => exception(errors, "id"))
-                .label('ID'),
-            path: Joi
-                .string()
-                .required()
-                .error(errors => exception(errors, "path"))
-                .label('Path')
-        })),
+    coverId: Joi
+        .any()
+        .required()
+        .error(errors => exception(errors, "coverId",))
+        .label('CoverId'),
     summary: Joi
         .string()
         .min(5)

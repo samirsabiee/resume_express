@@ -10,66 +10,67 @@
         </div>
         <div class="row">
             <!-- Your Profile Views Chart -->
+
             <div class="col-lg-12 m-b30">
                 <div class="widget-box">
                     <div class="wc-title">
                         <h4>مقالات ما</h4>
                     </div>
-                    <div class="widget-inner">
-                        <div class="card-courses-list admin-courses">
-                            <div class="card-courses-media">
-                                <img src="assets/images/courses/pic1.jpg" alt=""/>
-                            </div>
-                            <div class="card-courses-full-dec">
-                                <div class="card-courses-title">
-                                    <h4>یادگیری پی‌اچ‌پی از پایه تا پیشرفته</h4>
+                    <% data.docs.forEach(article => { %>
+                        <div class="widget-inner">
+                            <div class="card-courses-list admin-courses">
+                                <div class="card-courses-media">
+                                    <img src="<%= '../' + article.coverId.path %>" alt=""/>
                                 </div>
-                                <div class="card-courses-list-bx">
-                                    <ul class="card-courses-view">
-                                        <li class="card-courses-user">
-                                            <div class="card-courses-user-pic">
-                                                <img src="assets/images/testimonials/pic3.jpg" alt=""/>
-                                            </div>
-                                            <div class="card-courses-user-info">
-                                                <h5>نویسنده</h5>
-                                                <h4>سمیر سبیعی</h4>
-                                            </div>
-                                        </li>
-                                        <li class="card-courses-categories">
-                                            <h5>3 دسته‌بندی</h5>
-                                            <h4>بک‌اند</h4>
-                                        </li>
-                                        <li class="card-courses-review">
-                                            <h5>3 نظرات</h5>
-                                            <ul class="cours-star">
-                                                <li class="active"><i class="fa fa-star"></i></li>
-                                                <li class="active"><i class="fa fa-star"></i></li>
-                                                <li class="active"><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </li>
-                                        <li class="card-courses-stats">
-                                            <a href="#" class="btn button-sm green radius-xl">تکمیل شده</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="row card-courses-dec">
-                                    <div class="col-md-12">
-                                        <h6 class="m-b10">چکیده مقاله</h6>
-                                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-                                            طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-                                            لازم است</p>
+                                <div class="card-courses-full-dec">
+                                    <div class="card-courses-title">
+                                        <h4><%= article.title %></h4>
                                     </div>
-                                    <div class="col-md-12">
-                                        <a href="#" class="btn green radius-xl outline">انتشار</a>
-                                        <a href="#" class="btn red outline radius-xl ">ویرایش</a>
+                                    <div class="card-courses-list-bx">
+                                        <ul class="card-courses-view">
+                                            <li class="card-courses-user">
+                                                <div class="card-courses-user-pic">
+                                                    <img src="assets/images/testimonials/pic3.jpg" alt=""/>
+                                                </div>
+                                                <div class="card-courses-user-info">
+                                                    <h5>نویسنده</h5>
+                                                    <h4><%= article.author %></h4>
+                                                </div>
+                                            </li>
+                                            <li class="card-courses-categories">
+                                                <h5>3 دسته‌بندی</h5>
+                                                <h4>بک‌اند</h4>
+                                            </li>
+                                            <li class="card-courses-review">
+                                                <h5>3 نظرات</h5>
+                                                <ul class="cours-star">
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li class="active"><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                    <li><i class="fa fa-star"></i></li>
+                                                </ul>
+                                            </li>
+                                            <li class="card-courses-stats">
+                                                <a href="#" class="btn button-sm green radius-xl">تکمیل شده</a>
+                                            </li>
+                                        </ul>
                                     </div>
-                                </div>
+                                    <div class="row card-courses-dec">
+                                        <div class="col-md-12">
+                                            <h6 class="m-b10">چکیده مقاله</h6>
+                                            <p><%= article.summary %></p>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <a href="#" class="btn green radius-xl outline">انتشار</a>
+                                            <a href="#" class="btn red outline radius-xl ">ویرایش</a>
+                                        </div>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <% }) %>
                 </div>
             </div>
             <!-- Your Profile Views Chart END-->

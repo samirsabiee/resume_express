@@ -21,15 +21,23 @@ class Article {
     }
 
     async deleteById(id) {
-        return await articleSchema.deleteOne(id)
+        try {
+            return await articleSchema.deleteOne(id)
+        } catch (e) {
+            throw e
+        }
     }
 
     async all() {
-        return await articleSchema.find()
+        try {
+            return await articleSchema.find()
+        } catch (e) {
+            throw e
+        }
     }
 
     async paginateArticle(page, limit) {
-        return await articleSchema.paginate({}, {page, limit})
+        return await articleSchema.paginate({}, {page, limit, populate: "coverId"})
     }
 }
 

@@ -19,7 +19,7 @@ class Upload {
     }
 
     upload() {
-        return multer(this.multerImageOption(this.directory)).array(this.fieldName)
+        return multer(this.multerImageOption(this.directory)).single(this.fieldName)
     }
 
     multerImageOption() {
