@@ -8,6 +8,7 @@ router.route('/article')
     .get(adminController.showArticleForm)
     .post(adminController.saveArticle)
 router.route('/category')
+    .get(adminController.showCategory)
     .post(adminController.saveCategory)
     .put(adminController.editCategory)
 module.exports = router
