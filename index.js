@@ -11,7 +11,7 @@ app.use(cors())
 //connect to database
 require('./databases')
 //using native body-parser for get form data
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({extended: false}))
 //using native body-parser for get json data
 app.use(express.json())
 //require app config

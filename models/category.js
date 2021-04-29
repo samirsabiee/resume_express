@@ -18,6 +18,14 @@ class Category {
             throw e
         }
     }
+
+    async all() {
+        try {
+            return await categorySchema.find()
+        } catch (e) {
+            throw e
+        }
+    }
 }
 
 module.exports = new Category()

@@ -41,6 +41,16 @@
                                                value="">
                                     </div>
                                 </div>
+                                <div class="form-group col-12">
+                                    <label for="category" class="col-form-label">دسته بندی</label>
+                                    <div>
+                                        <select id="category" name="category" class="form-control">
+                                            <% data.categories.forEach(category => { %>
+                                                <option value="<%= category.id %>"><%= category.name %></option>
+                                            <% }) %>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="seperator"></div>
                                 <div class="form-group col-12">
                                     <label for="summary" class="col-form-label">چکیده مقاله</label>
@@ -61,8 +71,7 @@
                                 </div>
                             </div>
                         </form>
-                        <form id="addCategoryForm" action="/admin/category" method="post" class="edit-profile m-b30"
-                              enctype="application/x-www-form-urlencoded">
+                        <form id="addCategoryForm">
                             <div class="row">
                                 <div class="col-12 mt-5">
                                     <table id="item-add" style="width:100%;">
@@ -72,7 +81,7 @@
                                                     <div class="col-md-3">
                                                         <label class="col-form-label">افزودن دسته بندی جدید</label>
                                                         <div>
-                                                            <input name="name" class="form-control"
+                                                            <input id="categoryName" name="name" class="form-control"
                                                                    type="text" value="">
                                                         </div>
                                                     </div>

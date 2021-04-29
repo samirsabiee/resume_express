@@ -24,8 +24,10 @@ module.exports.saveCategory = async (req, res) => {
         res.status(400).send({messages: e.messages})
     }
 }
-module.exports.showArticleForm = (req, res) => {
-    res.render('admin/dashboard', {layout: 'addArticle', data: ''})
+module.exports.showArticleForm = async (req, res) => {
+    let data = {}
+    data.categories = await categoryModel.all()
+    res.render('admin/dashboard', {layout: 'addArticle', data})
 }
 module.exports.saveArticle = async (req, res) => {
     new Upload('articles', 'cover').uploadImages()(req, res, async (err) => {

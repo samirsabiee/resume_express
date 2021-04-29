@@ -1,5 +1,5 @@
 (function ($) {
-    jQuery(document).ready(function () {
+    $(document).ready(function () {
         $("#addArticleForm").submit(function (e) {
             e.preventDefault()
             let fd = new FormData(this)
@@ -40,17 +40,14 @@
                 }
             })
         })
-        /*$("#addCategoryForm").submit(function (e) {
+        $("#addCategoryForm").submit(function (e) {
             e.preventDefault()
-            let fd = new FormData(this)
-            console.log(fd)
+            const categoryName = $("#categoryName").val()
             $.ajax({
-                type: "POST",
                 url: "http://localhost:3000/admin/category",
-                data: fd,
-                async: false, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
-                processData: false, //add this
-                contentType: false, //and this
+                data: {name: categoryName},
+                method: "POST",
+                contentType: "application/x-www-form-urlencoded", //and this
                 success: function (response, textStatus, jqXHR) {
                     let title = $("#ajaxModalLabel")
                     title.addClass('text-success')
@@ -60,10 +57,9 @@
                     icon.addClass('fas fa-2x fa-thumbs-up text-success')
                     $("#messageModalContent")[0].innerText = response.message
                     e.target.reset()
-                    $('#summernote').summernote('code', '');
                     $("#ajaxModal").modal("show")
                     $("#modalOkBtn").click(e => {
-                        window.location.reload();
+                        $('#ajaxModal').modal('hide')
                     })
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -80,6 +76,6 @@
                     })
                 }
             })
-        })*/
+        })
     })
 })(jQuery)
