@@ -6,7 +6,7 @@ const article = Joi.object().keys({
         .min(3)
         .max(100)
         .required()
-        .error(errors => exception(errors, "title"))
+        .error(errors => exception(errors, "title", {min: 3, max: 100}))
         .label('title'),
     author: Joi
         .string()
@@ -18,8 +18,13 @@ const article = Joi.object().keys({
     coverId: Joi
         .any()
         .required()
-        .error(errors => exception(errors, "coverId",))
+        .error(errors => exception(errors, "coverId"))
         .label('CoverId'),
+    categoryId: Joi
+        .any()
+        .required()
+        .error(errors => exception(errors, "category"))
+        .label('categoryId'),
     summary: Joi
         .string()
         .min(5)

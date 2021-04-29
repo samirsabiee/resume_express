@@ -44,7 +44,8 @@
                                 <div class="form-group col-12">
                                     <label for="category" class="col-form-label">دسته بندی</label>
                                     <div>
-                                        <select id="category" name="category" class="form-control">
+                                        <select id="category" name="categoryId" class="form-control">
+                                            <option value="" disabled selected>انتخاب کنید</option>
                                             <% data.categories.forEach(category => { %>
                                                 <option value="<%= category.id %>"><%= category.name %></option>
                                             <% }) %>
