@@ -9,4 +9,5 @@ router.route('/article')
     .post(adminController.saveArticle)
 router.route('/category')
     .post(adminController.saveCategory)
+    .put(adminController.editCategory)
 module.exports = router

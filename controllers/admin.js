@@ -25,6 +25,14 @@ module.exports.saveCategory = async (req, res) => {
         res.status(400).send({messages: e.messages})
     }
 }
+module.exports.editCategory = async (req, res) => {
+    try {
+        const newCategory = await categoryModel.updateOne(req.body)
+        res.status(200).send({message: messages.successEditCategory, newCategory})
+    } catch (e) {
+        res.status(400).send({message: e.message})
+    }
+}
 module.exports.showArticleForm = async (req, res) => {
     let data = {}
     data.categories = await categoryModel.all()

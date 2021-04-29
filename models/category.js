@@ -26,6 +26,15 @@ class Category {
             throw e
         }
     }
+
+    async updateOne(category) {
+        try {
+            await categoryValidation.validateAsync({name: category.name})
+            return await categorySchema.findByIdAndUpdate(category.id, {name: category.name}, {new: true})
+        } catch (e) {
+            throw e
+        }
+    }
 }
 
 module.exports = new Category()
