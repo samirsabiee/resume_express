@@ -2,8 +2,11 @@ const Upload = require('../services/upload')
 const messages = require('../services/messages')
 const mediaModel = require('../models/media')
 const articleModel = require('../models/article')
-module.exports.dashboard = (req, res) => {
-    res.render('admin/dashboard', {layout: 'index', data: ''})
+const categoryModel = require('../models/category')
+module.exports.dashboard = async (req, res) => {
+    let data = {}
+    data.articleCounts = await articleModel.counts()
+    res.render('admin/dashboard', {layout: 'index', data})
 }
 module.exports.blog = async (req, res) => {
     const articles = await articleModel.paginateArticle(1, 10)
@@ -12,7 +15,18 @@ module.exports.blog = async (req, res) => {
 module.exports.comments = (req, res) => {
     res.render('admin/dashboard', {layout: 'comments', data: ''})
 }
-module.exports.addArticle = (req, res) => {
+module.exports.showCategoryForm = (req, res) => {
+    req.status(200).json({message: 'Show category Form'})
+}
+module.exports.saveCategory = async (req, res) => {
+    try {
+        const category = await categoryModel.create(req.body)
+        res.status(200).send({message: messages.successSaveCategory, category})
+    } catch (e) {
+        res.status(400).send(e)
+    }
+}
+module.exports.showArticleForm = (req, res) => {
     res.render('admin/dashboard', {layout: 'addArticle', data: ''})
 }
 module.exports.saveArticle = async (req, res) => {

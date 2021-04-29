@@ -5,7 +5,7 @@
             let fd = new FormData(this)
             $.ajax({
                 type: "POST",
-                url: "http://localhost:3000/admin/saveArticle",
+                url: "http://localhost:3000/admin/article",
                 data: fd,
                 async: false, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
                 processData: false, //add this

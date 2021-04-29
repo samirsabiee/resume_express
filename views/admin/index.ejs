@@ -20,10 +20,11 @@
 								تمام مقالات وبسایت
 							</span>
                         <span class="wc-stats">
-								<span class="counter">18</span>
+								<span class="counter"><%= data.articleCounts %></span>
                             </span>
                         <div class="progress wc-progress">
-                            <div class="progress-bar" role="progressbar" style="width: 78%;" aria-valuenow="50"
+                            <div class="progress-bar" role="progressbar" style="width: <%= data.articleCounts %>%;"
+                                 aria-valuenow="50"
                                  aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <span class="wc-progress-bx">
@@ -31,7 +32,7 @@
 									رشد
 								</span>
                             <span class="wc-number ml-auto">
-									78%
+									<%= data.articleCounts %>%
 								</span>
                             </span>
                     </div>

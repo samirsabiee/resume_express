@@ -36,6 +36,14 @@ class Article {
         }
     }
 
+    async counts() {
+        try {
+            return await articleSchema.countDocuments()
+        } catch (e) {
+            throw e
+        }
+    }
+
     async paginateArticle(page, limit) {
         return await articleSchema.paginate({}, {page, limit, populate: "coverId"})
     }

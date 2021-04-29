@@ -5,7 +5,7 @@ const articleSchema = new Schema({
     title: {type: String, required: true, unique: true},
     author: {type: String, required: true},
     coverId: {type: mongoose.Types.ObjectId, required: true, ref: "Media"},
-    summary: {type: String, required: true},
+    summary: {type: String, required: true, trim: true},
     content: {type: String, required: true}
 }, {timestamps: true})
 
