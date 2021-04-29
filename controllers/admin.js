@@ -15,7 +15,6 @@ module.exports.dashboard = async (req, res) => {
 module.exports.blog = async (req, res) => {
     try {
         const articles = await articleModel.paginateArticle(1, 10)
-        console.log(articles)
         res.render('admin/dashboard', {layout: 'blog', data: articles})
     } catch (e) {
         res.status(404).send({message: e.message})
@@ -38,7 +37,6 @@ module.exports.showCategory = async (req, res) => {
 }
 module.exports.saveCategory = async (req, res) => {
     try {
-        console.log(req.body)
         const category = await categoryModel.create(req.body)
         res.status(200).send({message: messages.successSaveCategory, category})
     } catch (e) {
