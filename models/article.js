@@ -45,7 +45,7 @@ class Article {
     }
 
     async paginateArticle(page, limit) {
-        return await articleSchema.paginate({}, {page, limit, populate: "coverId"})
+        return await articleSchema.paginate({}, {page, limit, populate: ["coverId", "categoryId"]})
     }
 }
 

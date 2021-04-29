@@ -10,6 +10,7 @@ module.exports.dashboard = async (req, res) => {
 }
 module.exports.blog = async (req, res) => {
     const articles = await articleModel.paginateArticle(1, 10)
+    console.log(articles)
     res.render('admin/dashboard', {layout: 'blog', data: articles})
 }
 module.exports.comments = (req, res) => {
