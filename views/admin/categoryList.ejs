@@ -26,7 +26,7 @@
                                 <div class="mail-box-list">
                                     <div class="mail-list-info">
                                         <div class="mail-list-title">
-                                            <h5><%= category.name %></h5>
+                                            <h5 id="<%= category.id %>"><%= category.name %></h5>
                                         </div>
                                         <div class="mail-list-title-info">
                                             <p>این دسته 10 بار استفاده شده</p>
@@ -36,7 +36,8 @@
                                         </div>
                                         <ul class="mailbox-toolbar">
                                             <li data-toggle="tooltip" title="ویرایش"><i class="fa fa-pencil"></i></li>
-                                            <li data-toggle="tooltip" title="حذف"><i class="fa fa-trash-o"></i></li>
+                                            <li class="deleteCategoryBtn" data-toggle="tooltip" title="حذف"><i
+                                                        class="fa fa-trash-o"></i></li>
                                         </ul>
                                     </div>
                                 </div>

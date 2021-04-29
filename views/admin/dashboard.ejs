@@ -339,6 +339,34 @@
     </div>
 </div>
 <!-- end ajax result modal -->
+<!-- ajax result modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ajaxModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-center w-100" id="ajaxModalLabel">حذف دسته بندی</h5>
+            </div>
+            <div class="modal-body">
+                <div class="single-info d-flex flex-column justify-content-center align-items-center">
+                    <div class="info-icon">
+                        <i id="modalIcon" class="fa fa-2x fa-trash-o text-danger"></i>
+                    </div>
+                    <div id="deleteMessageModalContent" class="info-content text-black">
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modalOkDeleteBtn" type="button" class="btn btn-danger ml-3">بله</button>
+                <button id="modalCancelBtn" onclick="$('#deleteModal').modal('hide')" type="button"
+                        class="btn btn-warning">خیر
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end ajax result modal -->
 
 <!-- External JavaScripts -->
 <script src="/admin/assets/js/jquery.min.js"></script>
