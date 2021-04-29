@@ -51,6 +51,14 @@ module.exports.editCategory = async (req, res) => {
         res.status(400).send({message: e.message})
     }
 }
+module.exports.deleteCategory = async (req, res) => {
+    try {
+        const deletedCategory = await categoryModel.deleteById(req.body.id)
+        res.status(200).send({message: messages.successDeleteCategory, category: deletedCategory})
+    } catch (e) {
+        res.status(400).send({message: e.message})
+    }
+}
 module.exports.showArticleForm = async (req, res) => {
     let data = {}
     data.categories = await categoryModel.all()

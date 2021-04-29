@@ -4,5 +4,6 @@ module.exports = {
     unselectedImage: 'حداقل یک تصویر برای ذخیره مقاله انتخاب شود',
     routeNotFound: 'مسیر پیدا نشد',
     successSaveCategory: 'دسته بندی با موفقیت ذخیره شد',
-    successEditCategory: 'دسته بندی با موفقیت ویرایش شد'
+    successEditCategory: 'دسته بندی با موفقیت ویرایش شد',
+    successDeleteCategory: 'دسته بندی با موفقیت حذف شد'
 }

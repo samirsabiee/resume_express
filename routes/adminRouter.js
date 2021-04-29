@@ -11,4 +11,5 @@ router.route('/category')
     .get(adminController.showCategory)
     .post(adminController.saveCategory)
     .put(adminController.editCategory)
+    .delete(adminController.deleteCategory)
 module.exports = router

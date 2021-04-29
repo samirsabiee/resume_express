@@ -35,6 +35,14 @@ class Category {
             throw e
         }
     }
+
+    async deleteById(id) {
+        try {
+            return await categorySchema.findByIdAndRemove(id)
+        } catch (e) {
+            throw e
+        }
+    }
 }
 
 module.exports = new Category()
