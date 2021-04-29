@@ -55,6 +55,7 @@
                     let icon = $("#modalIcon")
                     icon.removeAttr('class')
                     icon.addClass('fas fa-2x fa-thumbs-up text-success')
+                    $("#category").append(createOptionElement(response.category.id, response.category.name))
                     $("#messageModalContent")[0].innerText = response.message
                     e.target.reset()
                     $("#ajaxModal").modal("show")
@@ -78,4 +79,8 @@
             })
         })
     })
+
+    function createOptionElement(value, textContent) {
+        return $(`<option value="${value}">${textContent}</option>`)
+    }
 })(jQuery)
