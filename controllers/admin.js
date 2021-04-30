@@ -40,7 +40,7 @@ module.exports.saveCategory = async (req, res) => {
         const category = await categoryModel.create(req.body)
         res.status(200).send({message: messages.successSaveCategory, category})
     } catch (e) {
-        res.status(400).send({messages: e.messages})
+        res.status(400).send({message: e.message})
     }
 }
 module.exports.editCategory = async (req, res) => {
@@ -70,7 +70,7 @@ module.exports.saveArticle = async (req, res) => {
             res.status(400).send({message: err.message})
         } else {
             try {
-                await isImagesSent(req.file)
+                await isImagesReceived(req.file)
                 await storingFilesAndArticle(req.file, req.body, res)
             } catch (e) {
                 res.status(400).send({message: messages.unselectedImage})
@@ -98,7 +98,7 @@ async function saveArticle(coverId, article) {
     return await articleModel.create(article)
 }
 
-function isImagesSent(file) {
+function isImagesReceived(file) {
     return new Promise((resolve, reject) => {
         if (file === undefined || file === '') {
             reject(messages.unselectedImage)

@@ -70,7 +70,6 @@
                     let icon = $("#modalIcon")
                     icon.removeAttr('class')
                     icon.addClass('fas fa-2x fa-thumbs-down text-danger')
-                    console.log(jqXHR)
                     $("#messageModalContent")[0].innerText = jqXHR.responseJSON.message
                     $("#ajaxModal").modal("show")
                     $("#modalOkBtn").click(e => {

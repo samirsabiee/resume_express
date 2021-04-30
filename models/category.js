@@ -7,6 +7,7 @@ class Category {
             await categoryValidation.validateAsync(category)
             return await categorySchema.create(category)
         } catch (e) {
+
             throw e
         }
     }
