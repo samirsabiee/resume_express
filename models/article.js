@@ -11,10 +11,18 @@ class Article {
         }
     }
 
+    async findById(id) {
+        try {
+            return await articleSchema.findById(id).populate("coverId").exec()
+        } catch (e) {
+            throw e
+        }
+    }
+
     async updateById(id, article) {
         try {
             await articleValidator.validateAsync(article)
-            return await articleSchema.findByIdAndUpdate(id, article)
+            return await articleSchema.findByIdAndUpdate(id, article, {new: true})
         } catch (e) {
             throw e
         }
