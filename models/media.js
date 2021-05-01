@@ -27,8 +27,26 @@ class Media {
         }
     }
 
+    async updateById(id, media) {
+        try {
+            await mediaValidation.validateAsync(media)
+            return await mediaSchema.updateOne({_id: id}, {media})
+        } catch (e) {
+            throw e
+        }
+    }
+
     async deleteById(id) {
         return mediaSchema.deleteOne(id)
+    }
+
+    async findOneAndUpdate(media) {
+        try {
+            await mediaValidation.validateAsync(media)
+            return await mediaSchema.findOneAndUpdate({_id: media.id}, media)
+        } catch (e) {
+            throw e
+        }
     }
 }
 

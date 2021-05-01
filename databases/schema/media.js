@@ -16,4 +16,17 @@ mediaSchema.pre('save', function (next) {
     next();
 });
 
+mediaSchema.pre('findOneAndUpdate', async function (next) {
+    const data = this.getUpdate()
+    if (data.path !== undefined) {
+        try {
+            data.path = data.path.replace('uploads\\', '')
+            this.setUpdate(data)
+        } catch (e) {
+            next(e);
+        }
+    }
+    next();
+});
+
 module.exports = mongoose.model('Media', mediaSchema, 'media')

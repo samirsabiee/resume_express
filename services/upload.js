@@ -13,7 +13,7 @@ class Upload {
         return multer.diskStorage({
             destination: `./uploads/${this.directory}`,
             filename: function (req, file, cb) {
-                cb(null, file.originalname + '-' + Date.now() + path.extname(file.originalname))
+                cb(null, file.originalname.split('.')[0] + '-' + Date.now() + path.extname(file.originalname))
             }
         })
     }

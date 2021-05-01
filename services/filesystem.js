@@ -7,8 +7,9 @@ class Filesystem {
 
     removeFile(rootDirectory, path) {
         try {
-            fs.unlink(`${rootDirectory}/${path}`)
-            return true
+            fs.unlink(`${rootDirectory}/${path}`, err => {
+                return err === null;
+            })
         } catch (e) {
             throw e
         }

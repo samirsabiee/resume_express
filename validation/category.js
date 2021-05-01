@@ -7,6 +7,6 @@ const email = joi.object().keys({
         .required()
         .error(errors => exception(errors, "category"))
         .label('CategoryName')
-})
+}).unknown(true)
 
 module.exports = email

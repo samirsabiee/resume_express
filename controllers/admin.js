@@ -3,6 +3,7 @@ const messages = require('../services/messages')
 const mediaModel = require('../models/media')
 const articleModel = require('../models/article')
 const categoryModel = require('../models/category')
+const fileSystemService = require('../services/filesystem')
 module.exports.dashboard = async (req, res) => {
     try {
         let data = {}
@@ -78,6 +79,28 @@ module.exports.saveArticle = async (req, res) => {
         }
     })
 }
+module.exports.editArticle = async (req, res) => {
+
+    new Upload('articles', 'cover').uploadImages()(req, res, async (err) => {
+        if (err) {
+            console.log(req.body)
+            res.status(400).send({message: err.message})
+        } else {
+            try {
+                await updateArticle(req.body, req.file, res)
+            } catch (e) {
+                console.log('save', e)
+                res.status(400).send({message: e.message})
+            }
+        }
+    })
+}
+
+module.exports.showEditArticleForm = async (req, res) => {
+    const article = await articleModel.findById(req.params.id)
+    const categories = await categoryModel.all()
+    res.render('admin/dashboard', {layout: 'editArticle', data: {article, categories}})
+}
 
 async function storingFilesAndArticle(coverInfo, article, res) {
     try {
@@ -96,6 +119,28 @@ async function saveImagesInfo(coverInfo) {
 async function saveArticle(coverId, article) {
     article.coverId = coverId
     return await articleModel.create(article)
+}
+
+async function updateArticle(article, file, res) {
+    try {
+        const oldArticle = await articleModel.findOneAndUpdate(article)
+        if (file) {
+            file.id = oldArticle.coverId
+            await updateArticleCoverInfo(file)
+        }
+        res.status(200).send({message: messages.successEditArticle})
+    } catch (e) {
+        res.status(400).send({message: e})
+    }
+}
+
+async function updateArticleCoverInfo(file) {
+    try {
+        const oldFile = await mediaModel.findOneAndUpdate(file)
+        return fileSystemService.removeFile('uploads', oldFile.path)
+    } catch (e) {
+        throw e
+    }
 }
 
 function isImagesReceived(file) {

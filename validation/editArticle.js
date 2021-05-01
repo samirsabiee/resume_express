@@ -15,11 +15,6 @@ const article = Joi.object().keys({
         .required()
         .error(errors => exception(errors, "author", {max: 30, min: 3}))
         .label('author'),
-    coverId: Joi
-        .any()
-        .required()
-        .error(errors => exception(errors, "coverId"))
-        .label('CoverId'),
     categoryId: Joi
         .any()
         .required()
@@ -38,5 +33,5 @@ const article = Joi.object().keys({
         .required()
         .error(errors => exception(errors, "content", {min: 20}))
         .label('content')
-})
+}).unknown(true)
 module.exports = article

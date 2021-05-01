@@ -41,6 +41,6 @@ const media = Joi.object().keys({
         .required()
         .error(errors => exception(errors, "size"))
         .label('Size')
-})
+}).unknown(true)
 
 module.exports = media

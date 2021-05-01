@@ -22,5 +22,5 @@ const file = Joi.object().keys({
         .required()
         .error(errors => exception(errors, "mimetype"))
         .label('MimeType')
-})
+}).unknown(true)
 module.exports = file

@@ -1,10 +1,11 @@
 const articleSchema = require('../databases/schema/article')
-const articleValidator = require('../validation/article')
+const saveArticleValidator = require('../validation/saveArticle')
+const editArticleValidator = require('../validation/editArticle')
 
 class Article {
     async create(article) {
         try {
-            await articleValidator.validateAsync(article)
+            await saveArticleValidator.validateAsync(article)
             return await articleSchema.create(article)
         } catch (e) {
             throw e
@@ -21,7 +22,7 @@ class Article {
 
     async updateById(id, article) {
         try {
-            await articleValidator.validateAsync(article)
+            await saveArticleValidator.validateAsync(article)
             return await articleSchema.findByIdAndUpdate(id, article, {new: true})
         } catch (e) {
             throw e
@@ -52,8 +53,17 @@ class Article {
         }
     }
 
-    async paginateArticle(page, limit) {
+    async paginateArticle(page = 1, limit = 10) {
         return await articleSchema.paginate({}, {page, limit, populate: ["coverId", "categoryId"]})
+    }
+
+    async findOneAndUpdate(article) {
+        try {
+            await editArticleValidator.validateAsync(article)
+            return await articleSchema.findOneAndUpdate({_id: article.id}, article)
+        } catch (e) {
+            throw e
+        }
     }
 }
 
