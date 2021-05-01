@@ -40,6 +40,46 @@
                 }
             })
         })
+        $("#editArticleForm").submit(function (e) {
+            e.preventDefault()
+            let fd = new FormData(this)
+            const articleId = $("#articleLabelId").attr('articleId')
+            fd.append('id', articleId)
+            $.ajax({
+                type: "PUT",
+                url: "http://localhost:3000/admin/article",
+                data: fd,
+                async: false, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
+                processData: false, //add this
+                contentType: false, //and this
+                success: function (response, textStatus, jqXHR) {
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-success')
+                    title[0].textContent = 'موفق'
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-up text-success')
+                    $("#messageModalContent")[0].innerText = response.message
+                    $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        window.location.replace('http://localhost:3000/admin/blog');
+                    })
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-danger')
+                    title[0].textContent = 'ناموفق'
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-down text-danger')
+                    $("#messageModalContent")[0].innerText = jqXHR.responseJSON.message
+                    $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        $('#ajaxModal').modal('hide')
+                    })
+                }
+            })
+        })
         $("#addCategoryForm").submit(function (e) {
             e.preventDefault()
             const categoryName = $("#categoryName").val()

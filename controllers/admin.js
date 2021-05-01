@@ -80,16 +80,13 @@ module.exports.saveArticle = async (req, res) => {
     })
 }
 module.exports.editArticle = async (req, res) => {
-
     new Upload('articles', 'cover').uploadImages()(req, res, async (err) => {
         if (err) {
-            console.log(req.body)
             res.status(400).send({message: err.message})
         } else {
             try {
                 await updateArticle(req.body, req.file, res)
             } catch (e) {
-                console.log('save', e)
                 res.status(400).send({message: e.message})
             }
         }
