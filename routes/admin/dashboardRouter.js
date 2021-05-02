@@ -1,4 +1,4 @@
-const adminController = require('../../controllers/admin')
+const dashboardController = require('../../controllers/admin/dashboardController')
 module.exports = (router) => {
-    router.route('/dashboard').get(adminController.dashboard)
+    router.route('/dashboard').get(dashboardController.dashboard)
 }

@@ -1,4 +1,4 @@
-const adminController = require('../../controllers/admin')
+const blogController = require('../../controllers/admin/blogController')
 module.exports = (router) => {
-    router.route('/blog').get(adminController.blog)
+    router.route('/blog').get(blogController.blog)
 }
