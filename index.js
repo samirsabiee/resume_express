@@ -14,9 +14,7 @@ require('./databases')
 app.use(express.urlencoded({extended: false}))
 //using native body-parser for get json data
 app.use(express.json())
-//require app config
-require('./app')(app)
-// import session
+// require session
 const session = require('express-session')
 //session config
 app.use(session({
@@ -25,6 +23,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: {secure: true}
 }))
+//require app config
+require('./app')(app)
 // import app route
 require('./routes')(app)
 //app port

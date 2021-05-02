@@ -20,7 +20,3 @@ module.exports.sendMail = async (req, res) => {
     await mailServices.sendMailToMe(body.name, body.subject, body.email, body.message)
     res.status(200).send({message: messages.successSendEmail})
 }
-
-module.exports.login = (req, res) => {
-
-}
