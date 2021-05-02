@@ -17,6 +17,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "jalali-moment": "^3.3.10",
     "joi": "^17.4.0",
     "mongoose": "^5.12.5",
     "mongoose-paginate": "^5.0.3",

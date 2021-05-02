@@ -4,6 +4,7 @@ const mediaModel = require('../models/media')
 const articleModel = require('../models/article')
 const categoryModel = require('../models/category')
 const fileSystemService = require('../services/filesystem')
+const date = require('../services/dateAndTime')
 module.exports.dashboard = async (req, res) => {
     try {
         let data = {}
@@ -91,6 +92,16 @@ module.exports.editArticle = async (req, res) => {
             }
         }
     })
+}
+module.exports.showSingleArticle = async (req, res) => {
+    try {
+        const article = await articleModel.findById(req.query.id)
+        article.createdAt = date.toJalaliDate(article.createdAt)
+        res.render('admin/dashboard', {layout: 'singleArticle', data: article})
+    } catch (e) {
+        console.log(e)
+        res.status(404).send({page: 'page Not Found'})
+    }
 }
 
 module.exports.showEditArticleForm = async (req, res) => {

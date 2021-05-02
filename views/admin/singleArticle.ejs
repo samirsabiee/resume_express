@@ -1,0 +1,41 @@
+<div class="page-content bg-white mt-5">
+    <!-- Breadcrumb row -->
+    <div class="breadcrumb-row mt-5">
+        <div class="container">
+            <ul class="list-inline">
+                <li><a href="#">خانه</a></li>
+                <li>جزییات مقاله</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb row END -->
+    <div class="content-block">
+        <div class="section-area section-sp1">
+            <div class="container">
+                <div class="row">
+                    <!-- Left part start -->
+                    <div class="col-lg-12 col-xl-12">
+                        <!-- blog start -->
+                        <div class="recent-news blog-lg">
+                            <div class="action-box blog-lg">
+                                <img src="http://localhost:3000/<%= data.coverId.path %>" alt="<%= data.title %>">
+                            </div>
+                            <div class="info-bx">
+                                <ul class="media-post">
+                                    <li><a href="#"><i
+                                                    class="fa fa-calendar"></i> <%= new Date(Date.parse(data.createdAt)).toLocaleString() %>
+                                        </a></li>
+                                    <li><a href="#"><i class="fa fa-comments-o"></i> 10 نظر </a></li>
+                                </ul>
+                                <h5 class="post-title"><a href="#"><%= data.title %></a></h5>
+                                <%- data.content %>
+                            </div>
+                        </div>
+                        <!-- blog END -->
+                    </div>
+                    <!-- Left part END -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
