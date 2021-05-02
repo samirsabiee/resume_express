@@ -1,66 +1,10 @@
-const Upload = require('../services/upload')
-const messages = require('../services/messages')
-const mediaModel = require('../models/media')
-const articleModel = require('../models/article')
-const categoryModel = require('../models/category')
-const fileSystemService = require('../services/filesystem')
-const date = require('../services/dateAndTime')
-module.exports.dashboard = async (req, res) => {
-    try {
-        let data = {}
-        data.articleCounts = await articleModel.counts()
-        res.render('admin/dashboard', {layout: 'index', data})
-    } catch (e) {
-        res.status(404).send({message: e.message})
-    }
-}
-module.exports.blog = async (req, res) => {
-    try {
-        const articles = await articleModel.paginateArticle(1, 10)
-        res.render('admin/dashboard', {layout: 'blog', data: articles})
-    } catch (e) {
-        res.status(404).send({message: e.message})
-    }
-}
-module.exports.comments = (req, res) => {
-    try {
-        res.render('admin/dashboard', {layout: 'comments', data: ''})
-    } catch (e) {
-        res.status(404).send({message: e.message})
-    }
-}
-module.exports.showCategory = async (req, res) => {
-    try {
-        const categories = await categoryModel.all()
-        res.render('admin/dashboard', {layout: 'categoryList', data: categories})
-    } catch (e) {
-        res.status(400).send({message: e.message})
-    }
-}
-module.exports.saveCategory = async (req, res) => {
-    try {
-        const category = await categoryModel.create(req.body)
-        res.status(200).send({message: messages.successSaveCategory, category})
-    } catch (e) {
-        res.status(400).send({message: e.message})
-    }
-}
-module.exports.editCategory = async (req, res) => {
-    try {
-        const newCategory = await categoryModel.updateOne(req.body)
-        res.status(200).send({message: messages.successEditCategory, newCategory})
-    } catch (e) {
-        res.status(400).send({message: e.message})
-    }
-}
-module.exports.deleteCategory = async (req, res) => {
-    try {
-        const deletedCategory = await categoryModel.deleteById(req.body.id)
-        res.status(200).send({message: messages.successDeleteCategory, category: deletedCategory})
-    } catch (e) {
-        res.status(400).send({message: e.message})
-    }
-}
+const Upload = require('../../services/upload')
+const mediaModel = require('../../models/media')
+const date = require('../../services/dateAndTime')
+const articleModel = require('../../models/article')
+const categoryModel = require('../../models/category')
+const fileSystemService = require('../../services/filesystem')
+
 module.exports.showArticleForm = async (req, res) => {
     let data = {}
     data.categories = await categoryModel.all()
@@ -103,7 +47,6 @@ module.exports.showSingleArticle = async (req, res) => {
         res.status(404).send({page: 'page Not Found'})
     }
 }
-
 module.exports.showEditArticleForm = async (req, res) => {
     const article = await articleModel.findById(req.params.id)
     const categories = await categoryModel.all()
@@ -118,17 +61,14 @@ async function storingFilesAndArticle(coverInfo, article, res) {
         res.status(400).send({message: e.message})
     }
 }
-
 async function saveImagesInfo(coverInfo) {
     const media = await mediaModel.create(coverInfo)
     return media._id
 }
-
 async function saveArticle(coverId, article) {
     article.coverId = coverId
     return await articleModel.create(article)
 }
-
 async function updateArticle(article, file, res) {
     try {
         const oldArticle = await articleModel.findOneAndUpdate(article)
@@ -141,7 +81,6 @@ async function updateArticle(article, file, res) {
         res.status(400).send({message: e})
     }
 }
-
 async function updateArticleCoverInfo(file) {
     try {
         const oldFile = await mediaModel.findOneAndUpdate(file)

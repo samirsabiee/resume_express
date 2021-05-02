@@ -1,9 +1,9 @@
-const adminController = require('../../controllers/admin')
+const articleController = require('../../controllers/admin/articleController')
 module.exports = (router) => {
     router.route('/article')
-        .get(adminController.showArticleForm)
-        .post(adminController.saveArticle)
-        .put(adminController.editArticle)
-    router.get('/editArticle:id', adminController.showEditArticleForm)
-    router.get('/singleArticle', adminController.showSingleArticle)
+        .get(articleController.showArticleForm)
+        .post(articleController.saveArticle)
+        .put(articleController.editArticle)
+    router.get('/editArticle:id', articleController.showEditArticleForm)
+    router.get('/singleArticle', articleController.showSingleArticle)
 }
