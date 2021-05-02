@@ -1,8 +1,8 @@
-const adminController = require('../../controllers/admin')
+const categoryController = require('../../controllers/admin/categoryController')
 module.exports = (router) => {
     router.route('/category')
-        .get(adminController.showCategory)
-        .post(adminController.saveCategory)
-        .put(adminController.editCategory)
-        .delete(adminController.deleteCategory)
+        .get(categoryController.showCategory)
+        .post(categoryController.saveCategory)
+        .put(categoryController.editCategory)
+        .delete(categoryController.deleteCategory)
 }
