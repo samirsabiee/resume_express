@@ -1,5 +1,7 @@
 const sampleModel = require('../../models/sample')
+const mediaModel = require('../../models/media')
 const messages = require('../../services/messages')
+const upload = require('../../services/upload')
 module.exports.showAddSampleForm = async (req, res) => {
     try {
         res.render('admin/dashboard', {layout: 'addSample'})
@@ -24,7 +26,14 @@ module.exports.showSingleSample = async (req, res) => {
     }
 }
 module.exports.saveSample = async (req, res) => {
-
+    new upload('samples', 'images', true).uploadImages()(req, res, async (err) => {
+        if (err) {
+            res.status(400).send({message: err})
+        } else {
+            await mediaModel.createMany(req.files)
+            res.status(200).send({message: 'successFully images saved'})
+        }
+    })
 }
 module.exports.editSample = async (req, res) => {
 
