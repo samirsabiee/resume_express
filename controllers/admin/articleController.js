@@ -4,6 +4,7 @@ const date = require('../../services/dateAndTime')
 const articleModel = require('../../models/article')
 const categoryModel = require('../../models/category')
 const fileSystemService = require('../../services/filesystem')
+const messages = require('../../services/messages')
 
 module.exports.showArticleForm = async (req, res) => {
     let data = {}
@@ -61,14 +62,17 @@ async function storingFilesAndArticle(coverInfo, article, res) {
         res.status(400).send({message: e.message})
     }
 }
+
 async function saveImagesInfo(coverInfo) {
     const media = await mediaModel.create(coverInfo)
     return media._id
 }
+
 async function saveArticle(coverId, article) {
     article.coverId = coverId
     return await articleModel.create(article)
 }
+
 async function updateArticle(article, file, res) {
     try {
         const oldArticle = await articleModel.findOneAndUpdate(article)
@@ -81,6 +85,7 @@ async function updateArticle(article, file, res) {
         res.status(400).send({message: e})
     }
 }
+
 async function updateArticleCoverInfo(file) {
     try {
         const oldFile = await mediaModel.findOneAndUpdate(file)
