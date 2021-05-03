@@ -1,11 +1,21 @@
 const mediaSchema = require('../databases/schema/media')
 const mediaValidation = require('../validation/media')
+const filesValidation = require('../validation/files')
 
 class Media {
     async create(media) {
         try {
             await mediaValidation.validateAsync(media)
             return await mediaSchema.create(media)
+        } catch (e) {
+            throw e
+        }
+    }
+
+    async createMany(files) {
+        try {
+            await filesValidation.validateAsync(files)
+            return await mediaSchema.insertMany(files)
         } catch (e) {
             throw e
         }
