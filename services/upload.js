@@ -1,6 +1,7 @@
 const multer = require('multer')
 const path = require('path')
 const articleWithoutImagesValidation = require('../validation/articleWithoutImages')
+const sampleWithoutImagesValidation = require('../validation/sampleWithoutImages')
 const imageValidation = require('../validation/image')
 
 class Upload {
@@ -18,6 +19,15 @@ class Upload {
         })
     }
 
+    async fileInfoValidate(info) {
+        switch (this.directory) {
+            case 'articles':
+                return await articleWithoutImagesValidation.validateAsync(info)
+            case 'samples':
+                return await sampleWithoutImagesValidation.validateAsync(info)
+        }
+    }
+
     upload() {
         return multer(this.multerImageOption(this.directory)).single(this.fieldName)
     }
@@ -26,9 +36,9 @@ class Upload {
         return {
             storage: this.storage(this.directory),
             limits: {fileSize: process.env.MAX_IMAGE_FILE_SIZE},
-            fileFilter: async function (req, file, cb) {
+            fileFilter: async (req, file, cb) => {
                 try {
-                    await articleWithoutImagesValidation.validateAsync(req.body)
+                    await this.fileInfoValidate(req.body)
                     await imageValidation.validateAsync(file)
                     cb(null, true)
                 } catch (e) {
