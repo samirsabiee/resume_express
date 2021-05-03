@@ -7,5 +7,6 @@ module.exports = {
     successSaveCategory: 'دسته بندی با موفقیت ذخیره شد',
     successEditCategory: 'دسته بندی با موفقیت ویرایش شد',
     successDeleteCategory: 'دسته بندی با موفقیت حذف شد',
-    successDeleteSample: 'نمونه کار با موفقیت ذخیره شد'
+    successDeleteSample: 'نمونه کار با موفقیت ذخیره شد',
+    failureToSaveImage: 'خطایی در ذخیره تصویر بوجود امده است لطفا بعدا تلاش کنید'
 }
