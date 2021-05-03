@@ -30,8 +30,14 @@ module.exports.saveSample = async (req, res) => {
         if (err) {
             res.status(400).send({message: err})
         } else {
-            await mediaModel.createMany(req.files)
-            res.status(200).send({message: 'successFully images saved'})
+            try {
+                await isFilesReceived(req.files)
+                const files = await saveFiles(req.files)
+                await createSample(req.body, getFilesId(files))
+                res.status(200).send({message: messages.successSaveSample})
+            } catch (e) {
+                res.status(400).send({message: e.message})
+            }
         }
     })
 }
@@ -45,4 +51,30 @@ module.exports.deleteSample = async (req, res) => {
     } catch (e) {
         res.status(400).send({message: e.message})
     }
+}
+
+async function saveFiles(files) {
+    return await mediaModel.createMany(files)
+}
+
+function getFilesId(files) {
+    let ids = []
+    files.forEach(file => {
+        ids.push(file.id)
+    })
+    return ids
+}
+
+async function createSample(sample, ids) {
+    sample.media = ids
+    return await sampleModel.create(sample)
+}
+
+function isFilesReceived(files) {
+    return new Promise((resolve, reject) => {
+        if (files === undefined || files === '') {
+            reject(messages.unselectedImage)
+        }
+        resolve()
+    })
 }
