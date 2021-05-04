@@ -42,7 +42,17 @@ module.exports.saveSample = async (req, res) => {
     })
 }
 module.exports.editSample = async (req, res) => {
-
+    new upload('samples', 'images', true).uploadImages()(req, res, async (err) => {
+        if (err) {
+            res.status(200).send({message: e.message})
+        } else {
+            try {
+                await updateSample(req.body.req.files, res)
+            } catch (e) {
+                res.status(400).send({message: e.message})
+            }
+        }
+    })
 }
 module.exports.deleteSample = async (req, res) => {
     try {
@@ -68,6 +78,27 @@ function getFilesId(files) {
 async function createSample(sample, ids) {
     sample.media = ids
     return await sampleModel.create(sample)
+}
+
+async function updateSample(sample, files, res) {
+    try {
+        if (files) await updateFiles(files)
+        sample.media = getFilesId(files)
+        await sampleModel.updateById(sample)
+        res.status(200).send({message: messages.successEditSample})
+    } catch (e) {
+        res.status(400).send({message: e.message})
+    }
+}
+
+async function updateFiles(files) {
+    try {
+        for (const file of files) {
+            await mediaModel.updateById(file.id, file)
+        }
+    } catch (e) {
+        throw e
+    }
 }
 
 function isFilesReceived(files) {
