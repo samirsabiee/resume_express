@@ -1,6 +1,6 @@
 module.exports.showLogin = (req, res) => {
-    res.status(200).json({message: 'Login Form'})
+    res.render('login')
 }
 module.exports.login = (req, res) => {
-    res.status(200).json({message: 'Login Post'})
+    res.status(200).json(req.body)
 }
