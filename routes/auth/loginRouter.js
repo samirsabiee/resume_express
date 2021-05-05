@@ -1,6 +1,10 @@
-const authController = require('../../controllers/authController')
+const authController = require("../../controllers/authController");
+const passport = require("passport");
+
 module.exports = (router) => {
-    router.route('/login')
-        .get(authController.showLogin)
-        .post(authController.login)
-}
+  router.get("/login", authController.showLogin);
+
+  router.post("/login", authController.login);
+
+  router.route("/logout").get(authController.logout);
+};

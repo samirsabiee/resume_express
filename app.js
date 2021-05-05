@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+
 module.exports = (app) => {
     //make public directory static for assets files
     app.use(express.static(path.join(__dirname, 'public')))
