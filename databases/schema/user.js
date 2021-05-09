@@ -6,8 +6,9 @@ const userSchema = new Schema({
     name: {type: String, trim: true},
     mobile: {type: String, required: true, trim: true, unique: true},
     password: {type: String, required: true, trim: true},
-})
+}, {timestamps: true})
 
+//todo test bellow hook for working
 userSchema.pre("save", function (next) {
     bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(this.password, salt, (err, hash) => {

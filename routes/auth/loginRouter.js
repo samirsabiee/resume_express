@@ -1,9 +1,9 @@
 const authController = require("../../controllers/authController");
-const passport = require("passport");
+const {forwardAuthenticated} = require('../../config/authenticate')
 
 module.exports = (router) => {
     router.route("/login")
-        .get(authController.showLogin)
+        .get(forwardAuthenticated,authController.showLogin)
         .post(authController.login)
 
     router.route("/logout").get(authController.logout);

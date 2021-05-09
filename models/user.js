@@ -1,5 +1,6 @@
 const userSchema = require('../databases/schema/user')
-const userValidation = require('../validation/user')
+const userValidation = require('../validation/user.joi')
+const mobileValidation = require('../validation/mobile.joi')
 
 class User {
     async create(user) {
@@ -11,12 +12,13 @@ class User {
         }
     }
 
-    async findOne(attributes, callback) {
-        userSchema.findOne(attributes).then(data => {
-            callback(null, data)
-        }).catch(err => {
-            callback(err, null)
-        })
+    async findOne(mobile) {
+        try {
+            await mobileValidation.validateAsync({mobile})
+            return await userSchema.findOne({mobile})
+        } catch (e) {
+            throw e
+        }
     }
 
     async all() {
@@ -31,6 +33,14 @@ class User {
         try {
             await userValidation.validateAsync({name: user.name})
             return await userSchema.findByIdAndUpdate(user.id, {name: user.name}, {new: true})
+        } catch (e) {
+            throw e
+        }
+    }
+
+    async findById(id) {
+        try {
+            return await userSchema.findById(id)
         } catch (e) {
             throw e
         }

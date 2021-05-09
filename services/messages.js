@@ -10,5 +10,7 @@ module.exports = {
     successEditCategory: 'دسته بندی با موفقیت ویرایش شد',
     successDeleteCategory: 'دسته بندی با موفقیت حذف شد',
     successDeleteSample: 'نمونه کار با موفقیت ذخیره شد',
-    failureToSaveImage: 'خطایی در ذخیره تصویر بوجود امده است لطفا بعدا تلاش کنید'
+    failureToSaveImage: 'خطایی در ذخیره تصویر بوجود امده است لطفا بعدا تلاش کنید',
+    notExistUser: 'کاربر با این اطلاعات وجود ندارد',
+    incorrectPassword: 'رمز عبور اشتباه است'
 }
