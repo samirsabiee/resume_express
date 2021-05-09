@@ -1,12 +1,12 @@
 const UserFactory = require('../factory/user.factory')
 
-class UserSeeder {
+class UserSeeder extends UserFactory {
     constructor(userCount) {
-        this.userCount = userCount;
+        super(userCount)
     }
 
     async seedUser() {
-        return new UserFactory(this.userCount).createUsers()
+        return this.createUsers()
     }
 }
 

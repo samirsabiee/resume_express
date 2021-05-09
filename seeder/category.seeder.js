@@ -1,12 +1,12 @@
 const CategoryFactory = require('../factory/category.factory')
 
-class CategorySeeder {
+class CategorySeeder extends CategoryFactory {
     constructor(categoryCount) {
-        this.categoryCount = categoryCount;
+        super(categoryCount)
     }
 
     async seedCategory() {
-        return new CategoryFactory(this.categoryCount).createCategory()
+        return this.createCategory()
     }
 }
 
