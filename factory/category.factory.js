@@ -8,8 +8,6 @@ class CategoryFactory {
     }
 
     async createCategory() {
-        const result = await categorySchema.deleteMany({})
-        console.log('delete category collection result', result)
         let categories = []
         for (let i = 0; i < this.count; i++) {
             const category = {
@@ -18,7 +16,7 @@ class CategoryFactory {
             categories.push(category)
             console.log(`${i} category pushed`)
         }
-        return await categorySchema.insertMany(categories)
+        return categorySchema.insertMany(categories)
     }
 }
 

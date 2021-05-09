@@ -6,7 +6,7 @@ class UserSeeder {
     }
 
     async seedUser() {
-        return await new UserFactory(this.userCount).createUsers()
+        return new UserFactory(this.userCount).createUsers()
     }
 }
 

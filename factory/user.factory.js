@@ -9,8 +9,6 @@ class UserFactory {
     }
 
     async createUsers() {
-        const result = await userSchema.deleteMany({})
-        console.log('delete user collection result', result)
         let users = []
         for (let i = 0; i < this.count; i++) {
             const user = {
@@ -22,7 +20,7 @@ class UserFactory {
             console.log(`${i} user pushed`)
         }
 
-        return await userSchema.insertMany(users)
+        return userSchema.insertMany(users)
     }
 
 }

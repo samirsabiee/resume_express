@@ -6,7 +6,7 @@ class CategorySeeder {
     }
 
     async seedCategory() {
-        return await new CategoryFactory(this.categoryCount).createCategory()
+        return new CategoryFactory(this.categoryCount).createCategory()
     }
 }
 
