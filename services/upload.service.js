@@ -1,8 +1,8 @@
 const multer = require('multer')
 const path = require('path')
-const articleWithoutImagesValidation = require('../validation/articleWithoutImages')
-const sampleWithoutImagesValidation = require('../validation/sampleWithoutImages')
-const imageValidation = require('../validation/image')
+const articleWithoutImagesValidation = require('../validation/articleWithoutImages.validate')
+const sampleWithoutImagesValidation = require('../validation/sampleWithoutImages.validate')
+const imageValidation = require('../validation/image.validate')
 
 class UploadService {
     constructor(directory, fieldName, multiple = false) {

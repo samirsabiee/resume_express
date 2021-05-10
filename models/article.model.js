@@ -1,6 +1,6 @@
 const articleSchema = require('../databases/schema/article.schema')
-const saveArticleValidator = require('../validation/saveArticle')
-const editArticleValidator = require('../validation/editArticle')
+const saveArticleValidator = require('../validation/saveArticle.validate')
+const editArticleValidator = require('../validation/editArticle.validate')
 
 class ArticleModel {
     async create(article) {

@@ -1,6 +1,6 @@
 const userSchema = require('../databases/schema/user.schema')
-const userValidation = require('../validation/user.joi')
-const mobileValidation = require('../validation/mobile.joi')
+const userValidation = require('../validation/user.validate')
+const mobileValidation = require('../validation/mobile.validate')
 
 class UserModel {
     async create(user) {

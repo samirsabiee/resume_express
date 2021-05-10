@@ -1,6 +1,6 @@
 const sampleSchema = require('../databases/schema/sample.schema')
-const saveSampleValidation = require('../validation/saveSample')
-const editSampleValidation = require('../validation/editSample')
+const saveSampleValidation = require('../validation/saveSample.validate')
+const editSampleValidation = require('../validation/editSample.validate')
 
 class SampleModel {
     async create(sample) {

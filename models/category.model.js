@@ -1,5 +1,5 @@
 const categorySchema = require('../databases/schema/category.schema')
-const categoryValidation = require('../validation/category')
+const categoryValidation = require('../validation/category.validate')
 
 class CategoryModel {
     async create(category) {

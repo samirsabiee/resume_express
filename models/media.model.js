@@ -1,6 +1,6 @@
 const mediaSchema = require('../databases/schema/media.schema')
-const mediaValidation = require('../validation/media')
-const filesValidation = require('../validation/files')
+const mediaValidation = require('../validation/media.validate')
+const filesValidation = require('../validation/files.validate')
 
 class MediaModel {
     async create(media) {

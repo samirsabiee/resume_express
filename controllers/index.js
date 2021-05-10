@@ -1,7 +1,7 @@
 const path = require('path')
 const fileSystemService = require('../services/filesystem.service')
 const mailServices = require('../services/mailServices.service')
-const emailValidation = require('../validation/email')
+const emailValidation = require('../validation/email.validate')
 const messages = require('../services/messages.service')
 module.exports.index = (req, res) => {
     res.render('index')
