@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-class Filesystem {
+class FilesystemService {
     isExists(path) {
         return fs.existsSync(path)
     }
@@ -16,4 +16,4 @@ class Filesystem {
     }
 }
 
-module.exports = new Filesystem()
+module.exports = new FilesystemService()

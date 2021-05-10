@@ -1,7 +1,7 @@
 const sampleModel = require('../../models/sample.model')
 const mediaModel = require('../../models/media.model')
-const messages = require('../../services/messages')
-const upload = require('../../services/upload')
+const messages = require('../../services/messages.service')
+const upload = require('../../services/upload.service')
 module.exports.showAddSampleForm = async (req, res) => {
     try {
         res.render('admin/dashboard', {layout: 'addSample'})

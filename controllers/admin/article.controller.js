@@ -1,10 +1,10 @@
-const Upload = require('../../services/upload')
+const Upload = require('../../services/upload.service')
 const mediaModel = require('../../models/media.model')
-const date = require('../../services/dateAndTime')
+const date = require('../../services/dateAndTime.service')
 const articleModel = require('../../models/article.model')
 const categoryModel = require('../../models/category.model')
-const fileSystemService = require('../../services/filesystem')
-const messages = require('../../services/messages')
+const fileSystemService = require('../../services/filesystem.service')
+const messages = require('../../services/messages.service')
 
 module.exports.showArticleForm = async (req, res) => {
     let data = {}

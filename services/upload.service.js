@@ -4,7 +4,7 @@ const articleWithoutImagesValidation = require('../validation/articleWithoutImag
 const sampleWithoutImagesValidation = require('../validation/sampleWithoutImages')
 const imageValidation = require('../validation/image')
 
-class Upload {
+class UploadService {
     constructor(directory, fieldName, multiple = false) {
         this.directory = directory
         this.fieldName = fieldName
@@ -55,4 +55,4 @@ class Upload {
     }
 }
 
-module.exports = Upload
+module.exports = UploadService

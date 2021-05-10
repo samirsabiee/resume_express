@@ -1,4 +1,4 @@
-const messages = require('../../services/messages')
+const messages = require('../../services/messages.service')
 const categoryModel = require('../../models/category.model')
 
 module.exports.showCategory = async (req, res) => {

@@ -2,7 +2,7 @@ const transporter = require('../config/nodemailer.config')
 const ejs = require('ejs')
 const path = require('path')
 
-class MailServices {
+class MailServicesService {
     async sendMailToMe(name, subject, senderMail, message) {
         return await transporter.sendMail({
             from: senderMail,
@@ -23,4 +23,4 @@ class MailServices {
     }
 }
 
-module.exports = new MailServices()
+module.exports = new MailServicesService()
