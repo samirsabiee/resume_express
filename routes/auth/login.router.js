@@ -6,5 +6,5 @@ module.exports = (router) => {
         .get(forwardAuthenticated, authController.showLogin)
         .post(authController.login)
 
-    router.route("/logout").get(forwardAuthenticated, authController.logout);
+    router.route("/logout").get(authController.logout);
 };
