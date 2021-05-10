@@ -1,4 +1,4 @@
-const articleSchema = require('../databases/schema/article')
+const articleSchema = require('../databases/schema/article.schema')
 const faker = require('faker')
 faker.locale = "fa"
 

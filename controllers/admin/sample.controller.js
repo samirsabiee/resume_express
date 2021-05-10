@@ -1,5 +1,5 @@
-const sampleModel = require('../../models/sample')
-const mediaModel = require('../../models/media')
+const sampleModel = require('../../models/sample.model')
+const mediaModel = require('../../models/media.model')
 const messages = require('../../services/messages')
 const upload = require('../../services/upload')
 module.exports.showAddSampleForm = async (req, res) => {

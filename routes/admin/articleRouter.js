@@ -1,4 +1,4 @@
-const articleController = require('../../controllers/admin/articleController')
+const articleController = require('../../controllers/admin/article.controller')
 module.exports = (router) => {
     router.route('/article')
         .get(articleController.showArticleForm)

@@ -1,4 +1,4 @@
-const articleModel = require('../../models/article')
+const articleModel = require('../../models/article.model')
 
 module.exports.dashboard = async (req, res) => {
     try {

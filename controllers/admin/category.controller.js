@@ -1,5 +1,5 @@
 const messages = require('../../services/messages')
-const categoryModel = require('../../models/category')
+const categoryModel = require('../../models/category.model')
 
 module.exports.showCategory = async (req, res) => {
     try {

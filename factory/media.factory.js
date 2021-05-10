@@ -1,4 +1,4 @@
-const mediaSchema = require('../databases/schema/media')
+const mediaSchema = require('../databases/schema/media.schema')
 const faker = require('faker')
 faker.locale = "fa"
 

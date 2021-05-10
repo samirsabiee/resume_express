@@ -1,4 +1,4 @@
-const categorySchema = require('../databases/schema/category')
+const categorySchema = require('../databases/schema/category.schema')
 const faker = require('faker')
 faker.locale = "fa"
 

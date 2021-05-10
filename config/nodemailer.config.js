@@ -1,6 +1,6 @@
-const nodeMailer = require('nodemailer')
+const nodemailerConfig = require('nodemailer')
 
-const transporter = nodeMailer.createTransport({
+const transporter = nodemailerConfig.createTransport({
     host: process.env.MAIL_HOST,
     port: process.env.MAIL_PORT,
     secure: true, // true for 465, false for other ports

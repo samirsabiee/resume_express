@@ -1,8 +1,8 @@
 const Upload = require('../../services/upload')
-const mediaModel = require('../../models/media')
+const mediaModel = require('../../models/media.model')
 const date = require('../../services/dateAndTime')
-const articleModel = require('../../models/article')
-const categoryModel = require('../../models/category')
+const articleModel = require('../../models/article.model')
+const categoryModel = require('../../models/category.model')
 const fileSystemService = require('../../services/filesystem')
 const messages = require('../../services/messages')
 

@@ -1,8 +1,8 @@
-const articleSchema = require('../databases/schema/article')
+const articleSchema = require('../databases/schema/article.schema')
 const saveArticleValidator = require('../validation/saveArticle')
 const editArticleValidator = require('../validation/editArticle')
 
-class Article {
+class ArticleModel {
     async create(article) {
         try {
             await saveArticleValidator.validateAsync(article)
@@ -67,4 +67,4 @@ class Article {
     }
 }
 
-module.exports = new Article()
+module.exports = new ArticleModel()

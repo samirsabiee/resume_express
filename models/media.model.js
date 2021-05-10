@@ -1,8 +1,8 @@
-const mediaSchema = require('../databases/schema/media')
+const mediaSchema = require('../databases/schema/media.schema')
 const mediaValidation = require('../validation/media')
 const filesValidation = require('../validation/files')
 
-class Media {
+class MediaModel {
     async create(media) {
         try {
             await mediaValidation.validateAsync(media)
@@ -60,4 +60,4 @@ class Media {
     }
 }
 
-module.exports = new Media()
+module.exports = new MediaModel()

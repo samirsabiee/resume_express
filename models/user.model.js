@@ -1,8 +1,8 @@
-const userSchema = require('../databases/schema/user')
+const userSchema = require('../databases/schema/user.schema')
 const userValidation = require('../validation/user.joi')
 const mobileValidation = require('../validation/mobile.joi')
 
-class User {
+class UserModel {
     async create(user) {
         try {
             await userValidation.validateAsync(user)
@@ -55,4 +55,4 @@ class User {
     }
 }
 
-module.exports = new User()
+module.exports = new UserModel()

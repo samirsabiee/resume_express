@@ -1,4 +1,4 @@
-const categoryController = require('../../controllers/admin/categoryController')
+const categoryController = require('../../controllers/admin/category.controller')
 module.exports = (router) => {
     router.route('/category')
         .get(categoryController.showCategory)

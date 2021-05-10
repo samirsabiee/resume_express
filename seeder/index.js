@@ -3,10 +3,10 @@ require('dotenv').config()
 require("../databases")
 
 /*========================== SCHEMAS ==========================*/
-const userSchema = require('../databases/schema/user')
-const categorySchema = require('../databases/schema/category')
-const mediaSchema = require('../databases/schema/media')
-const articleSchema = require('../databases/schema/article')
+const userSchema = require('../databases/schema/user.schema')
+const categorySchema = require('../databases/schema/category.schema')
+const mediaSchema = require('../databases/schema/media.schema')
+const articleSchema = require('../databases/schema/article.schema')
 /*========================== SCHEMAS ==========================*/
 const User = require('./user.seeder')
 const Category = require('./category.seeder')

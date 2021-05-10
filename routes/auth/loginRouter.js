@@ -1,5 +1,5 @@
-const authController = require("../../controllers/authController");
-const {forwardAuthenticated} = require('../../config/authenticate')
+const authController = require("../../controllers/auth.controller");
+const {forwardAuthenticated} = require('../../middlewares/authenticate.middleware')
 
 module.exports = (router) => {
     router.route("/login")

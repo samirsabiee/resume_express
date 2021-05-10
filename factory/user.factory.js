@@ -1,4 +1,4 @@
-const userSchema = require('../databases/schema/user')
+const userSchema = require('../databases/schema/user.schema')
 const faker = require('faker')
 const bcrypt = require('bcryptjs')
 faker.locale = "fa"

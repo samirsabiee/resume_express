@@ -1,8 +1,8 @@
-const sampleSchema = require('../databases/schema/sample')
+const sampleSchema = require('../databases/schema/sample.schema')
 const saveSampleValidation = require('../validation/saveSample')
 const editSampleValidation = require('../validation/editSample')
 
-class Sample {
+class SampleModel {
     async create(sample) {
         try {
             await saveSampleValidation.validateAsync(sample)
@@ -55,4 +55,4 @@ class Sample {
 
 }
 
-module.exports = new Sample()
+module.exports = new SampleModel()

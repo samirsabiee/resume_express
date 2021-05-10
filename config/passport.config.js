@@ -2,7 +2,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs')
 const messages = require('../services/messages')
 
-const User = require('../models/user')
+const User = require('../models/user.model')
 
 module.exports = function (passport) {
     passport.use(

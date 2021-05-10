@@ -1,12 +1,15 @@
 const controller = require('../controllers')
 const authRouter = require('./authRouter')
 const adminRouter = require('./adminRouter')
-const notFoundController = require('../controllers/404Controller')
+const notFoundController = require('../controllers/404.controller')
+const {ensureAuthenticated, forwardAuthenticated} = require('../middlewares/authenticate.middleware')
 module.exports = (app) => {
     app.get('/', controller.index)
     app.get('/download/resume', controller.download_resume)
     app.post('/sendMail', controller.sendMail)
+    app.use('/auth', forwardAuthenticated)
     app.use('/auth', authRouter)
+    app.use('/admin', ensureAuthenticated)
     app.use('/admin', adminRouter)
     app.use('*', notFoundController)
 }

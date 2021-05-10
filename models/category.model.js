@@ -1,7 +1,7 @@
-const categorySchema = require('../databases/schema/category')
+const categorySchema = require('../databases/schema/category.schema')
 const categoryValidation = require('../validation/category')
 
-class Category {
+class CategoryModel {
     async create(category) {
         try {
             await categoryValidation.validateAsync(category)
@@ -46,4 +46,4 @@ class Category {
     }
 }
 
-module.exports = new Category()
+module.exports = new CategoryModel()

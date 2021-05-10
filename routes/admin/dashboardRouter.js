@@ -1,6 +1,5 @@
-const dashboardController = require('../../controllers/admin/dashboardController')
-const {ensureAuthenticated} = require('../../config/authenticate')
+const dashboardController = require('../../controllers/admin/dashboard.controller')
 
 module.exports = (router) => {
-    router.get('/dashboard', ensureAuthenticated, dashboardController.dashboard)
+    router.get('/dashboard', dashboardController.dashboard)
 }

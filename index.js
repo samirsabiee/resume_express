@@ -17,7 +17,7 @@ const app = express()
 const port = process.env.APP_PORT
 
 //passport config
-require('./config/passport')(passport)
+require('./config/passport.config')(passport)
 
 //connect to database
 require("./databases")

@@ -1,4 +1,4 @@
-const sampleController = require('../../controllers/admin/sampleController')
+const sampleController = require('../../controllers/admin/sample.controller')
 module.exports = (router) => {
     router.route('/sample')
         .get(sampleController.showAddSampleForm)

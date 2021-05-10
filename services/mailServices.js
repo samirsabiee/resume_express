@@ -1,4 +1,4 @@
-const transporter = require('../config/nodemailer')
+const transporter = require('../config/nodemailer.config')
 const ejs = require('ejs')
 const path = require('path')
 
