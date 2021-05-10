@@ -3,8 +3,8 @@ const {forwardAuthenticated} = require('../../middlewares/authenticate.middlewar
 
 module.exports = (router) => {
     router.route("/login")
-        .get(forwardAuthenticated,authController.showLogin)
+        .get(forwardAuthenticated, authController.showLogin)
         .post(authController.login)
 
-    router.route("/logout").get(authController.logout);
+    router.route("/logout").get(forwardAuthenticated, authController.logout);
 };
