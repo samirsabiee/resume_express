@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-require('./auth/loginRouter')(router)
+require('./auth/login.router')(router)
 
 module.exports = router

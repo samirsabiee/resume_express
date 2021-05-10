@@ -1,6 +1,6 @@
 const controller = require('../controllers')
-const authRouter = require('./authRouter')
-const adminRouter = require('./adminRouter')
+const authRouter = require('./auth.router')
+const adminRouter = require('./admin.router')
 const notFoundController = require('../controllers/404.controller')
 const {ensureAuthenticated, forwardAuthenticated} = require('../middlewares/authenticate.middleware')
 module.exports = (app) => {
