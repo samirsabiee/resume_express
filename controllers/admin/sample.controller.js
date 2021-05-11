@@ -4,7 +4,7 @@ const messages = require('../../services/messages.service')
 const upload = require('../../services/upload.service')
 module.exports.showAddSampleForm = async (req, res) => {
     try {
-        res.render('admin/dashboard', {layout: 'addSample'})
+        res.render('admin/dashboard', {layout: 'addSample', data: ''})
     } catch (e) {
         res.render('404')
     }
