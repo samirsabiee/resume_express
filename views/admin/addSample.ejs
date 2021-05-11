@@ -1,0 +1,97 @@
+<!--Main container start -->
+<main class="ttr-wrapper">
+    <div class="container-fluid">
+        <div class="db-breadcrumb">
+            <h4 class="breadcrumb-title">افزودن نمونه کار</h4>
+            <ul class="db-breadcrumb-list">
+                <li><a href="#"><i class="fa fa-home"></i>خانه</a></li>
+                <li>افزودن نمونه کار</li>
+            </ul>
+        </div>
+        <div class="row">
+            <!-- Your Profile Views Chart -->
+            <div class="col-lg-12 m-b30">
+                <div class="widget-box">
+                    <div class="wc-title">
+                        <h4>افزودن نمونه کار</h4>
+                    </div>
+                    <div class="widget-inner">
+                        <form action="/admin/sample" method="POST" id="addSampleForm"
+                              class="edit-profile m-b30"
+                              enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label for="title" class="col-form-label">نام نمونه</label>
+                                    <div>
+                                        <input id="title" name="title" class="form-control" type="text"
+                                               value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="technologies" class="col-form-label">تکنولوژی ها</label>
+                                    <div>
+                                        <input id="technologies" name="technologies" class="form-control" type="text"
+                                               value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="URL" class="col-form-label">آدرس اینترنتی نمونه کار</label>
+                                    <div>
+                                        <input id="URL" name="URL" class="form-control" type="text"
+                                               value="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-12">
+                                    <label for="category" class="col-form-label">دسته بندی</label>
+                                    <div>
+                                        <select id="category" name="categoryId" class="form-control">
+                                            <option value="" disabled selected>انتخاب کنید</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="seperator"></div>
+                                <div class="form-group col-12">
+                                    <textarea id="summernote" name="content"></textarea>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input id="files" name="cover" type="file"
+                                           accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf"
+                                           multiple>
+                                </div>
+                                <div class="form-group col-12">
+                                    <input id="saveArticle" type="submit" class="btn btn-lg" value="ذخیره"/>
+                                </div>
+                            </div>
+                        </form>
+                        <form id="addCategoryForm">
+                            <div class="row">
+                                <div class="col-12 mt-5">
+                                    <table id="item-add" style="width:100%;">
+                                        <tr class="list-item">
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label class="col-form-label">افزودن دسته بندی جدید</label>
+                                                        <div>
+                                                            <input id="categoryName" name="name" class="form-control"
+                                                                   type="text" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 d-flex flex-column justify-content-end">
+                                                        <button type="submit" class="btn">ذخیره دسته بندی</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Your Profile Views Chart END-->
+        </div>
+    </div>
+</main>
