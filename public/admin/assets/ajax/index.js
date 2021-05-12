@@ -118,6 +118,46 @@
                 }
             })
         })
+        $("#addSampleForm").submit(function (e) {
+            e.preventDefault()
+            let fd = new FormData(this)
+            $.ajax({
+                url: "http://localhost:3000/admin/sample",
+                data: fd,
+                method: "POST",
+                processData: false, //add this
+                contentType: false, //and this
+                success: function (response, textStatus, jqXHR) {
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-success')
+                    title[0].textContent = 'موفق'
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-up text-success')
+                    $("#messageModalContent")[0].innerText = response.message
+                    e.target.reset()
+                    $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        $('#ajaxModal').modal('hide')
+                    })
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log('failure')
+                    let title = $("#ajaxModalLabel")
+                    title.addClass('text-danger')
+                    title[0].textContent = 'ناموفق'
+                    let icon = $("#modalIcon")
+                    icon.removeAttr('class')
+                    icon.addClass('fas fa-2x fa-thumbs-down text-danger')
+                    console.log(jqXHR.responseJSON.message)
+                    $("#messageModalContent")[0].innerText = jqXHR.responseJSON.message
+                    $("#ajaxModal").modal("show")
+                    $("#modalOkBtn").click(e => {
+                        $('#ajaxModal').modal('hide')
+                    })
+                }
+            })
+        })
         $(".deleteCategoryBtn").click(function (e) {
             $("#deleteModal").modal('show')
             let modalMessage = $("#deleteMessageModalContent")[0]

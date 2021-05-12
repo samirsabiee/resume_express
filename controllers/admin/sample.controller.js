@@ -26,8 +26,10 @@ module.exports.showSingleSample = async (req, res) => {
     }
 }
 module.exports.saveSample = async (req, res) => {
+    console.log('request received')
     new upload('samples', 'images', true).uploadImages()(req, res, async (err) => {
         if (err) {
+            console.log(err)
             res.status(400).send({message: err})
         } else {
             try {

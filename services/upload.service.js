@@ -25,6 +25,7 @@ class UploadService {
             case 'articles':
                 return await articleWithoutImagesValidation.validateAsync(info)
             case 'samples':
+                info.technologies = info.technologies.split(',')
                 return await sampleWithoutImagesValidation.validateAsync(info)
         }
     }
